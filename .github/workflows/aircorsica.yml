@@ -1,6 +1,4 @@
-cd ~/transport_temp
-python3 -c "
-content = '''name: Aircorsica Workflow
+name: Aircorsica Workflow
 
 on:
   workflow_dispatch:
@@ -12,13 +10,5 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run workflow script
-        run: |
-          echo 'Workflow started successfully'
-'''
-with open('.github/workflows/aircorsica.yml', 'w', encoding='utf-8') as f:
-    f.write(content)
-"
-git add .github/workflows/aircorsica.yml
-git commit -m "Fix workflow yaml syntax cleanly"
-git push origin main
+      - name: Run scraper with Xvfb
+        run: xvfb-run python scraper_aircorsica.py
