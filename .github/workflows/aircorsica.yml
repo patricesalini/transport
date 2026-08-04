@@ -22,15 +22,16 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; else pip install playwright; fi
+          playwright install chromium
 
       - name: Run scraper
-        run: python scraper_aircorsica.py
+        run: python scraperapi.py --mode batch
 
       - name: Commit and push changes
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "actions@github.com"
-          git add aircorsica.csv
+          git add prix_aircorsica_*.csv
           git diff --staged --quiet || git commit -m "Auto-update Aircorsica flight prices"
           git push
