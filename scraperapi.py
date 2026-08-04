@@ -1,6 +1,7 @@
 import argparse
 import csv
 from datetime import datetime, timedelta
+import glob
 import random
 import re
 import sys
@@ -119,7 +120,7 @@ def run_batch():
 
         browser.close()
 
-    # Enregistrement automatique dans un fichier CSV (sans colonne TIME)
+    # 1. Enregistrement automatique dans le fichier CSV journalier
     filename = f"prix_aircorsica_{datetime.now().strftime('%Y%m%d')}.csv"
     with open(filename, mode="w", newline="", encoding="utf-8-sig") as f:
         writer = csv.DictWriter(f, fieldnames=["origin", "destination", "date", "min", "max", "avg", "count"])
@@ -127,6 +128,40 @@ def run_batch():
         writer.writerows(results)
     
     print(f"\n[Terminé] Données sauvegardées dans {filename}")
+
+    # 2. Agrégation automatique de tous les fichiers du dossier dans un historique global unique
+    global_filename = "historique_global.csv"
+    all_files = glob.glob("prix_aircorsica_*.csv")
+    
+    seen_rows = set()
+    all_rows = []
+    fieldnames = ["origin", "destination", "date", "min", "max", "avg", "count"]
+
+    for file in all_files:
+        if file == global_filename:
+            continue
+        with open(file, mode="r", encoding="utf-8-sig") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                row_key = (
+                    row.get("origin"), 
+                    row.get("destination"), 
+                    row.get("date"), 
+                    row.get("min"), 
+                    row.get("max"), 
+                    row.get("avg"), 
+                    row.get("count")
+                )
+                if row_key not in seen_rows:
+                    seen_rows.add(row_key)
+                    all_rows.append(row)
+
+    with open(global_filename, mode="w", newline="", encoding="utf-8-sig") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(all_rows)
+
+    print(f"[Agrégation] Historique global mis à jour dans {global_filename} ({len(all_rows)} lignes au total).")
 
 def test_optimal_delay():
     """Mode robot test pour calibrer les intervalles de pause."""
