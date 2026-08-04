@@ -1,0 +1,348 @@
+🚀 Lancement du pipeline...
+Script démarré en mode complet (toutes les routes).
+
+--- Traitement de la liaison : AJA-ORY (AJA -> ORY) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [AJA-ORY] : Min=246.96€ | Max=347.51€ | Moyenne=297.23€ (2 vols)
+  -> Pause de 5s avant la liaison suivante...
+
+
+--- Traitement de la liaison : AJA-CDG (AJA -> CDG) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [AJA-CDG] : Min=159.82€ | Max=272.61€ | Moyenne=225.34€ (3 vols)
+  -> Pause de 3s avant la liaison suivante...
+
+
+--- Traitement de la liaison : AJA-MRS (AJA -> MRS) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [AJA-MRS] : Min=161.39€ | Max=346.55€ | Moyenne=248.89€ (4 vols)
+  -> Pause de 5s avant la liaison suivante...
+
+
+--- Traitement de la liaison : AJA-NCE (AJA -> NCE) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [AJA-NCE] : Min=235.88€ | Max=299.40€ | Moyenne=267.64€ (2 vols)
+  -> Pause de 4s avant la liaison suivante...
+
+
+--- Traitement de la liaison : AJA-LYS (AJA -> LYS) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [AJA-LYS] : Min=181.41€ | Max=254.54€ | Moyenne=214.81€ (5 vols)
+  -> Pause de 4s avant la liaison suivante...
+
+
+--- Traitement de la liaison : AJA-TLS (AJA -> TLS) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [AJA-TLS] : Min=232.26€ | Max=232.26€ | Moyenne=232.26€ (1 vols)
+  -> Pause de 6s avant la liaison suivante...
+
+
+--- Traitement de la liaison : BIA-ORY (BIA -> ORY) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [BIA-ORY] : Min=172.48€ | Max=318.64€ | Moyenne=227.32€ (5 vols)
+  -> Pause de 6s avant la liaison suivante...
+
+
+--- Traitement de la liaison : BIA-CDG (BIA -> CDG) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [BIA-CDG] : Min=189.03€ | Max=189.03€ | Moyenne=189.03€ (1 vols)
+  -> Pause de 6s avant la liaison suivante...
+
+
+--- Traitement de la liaison : BIA-MRS (BIA -> MRS) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [BIA-MRS] : Min=259.51€ | Max=259.51€ | Moyenne=259.51€ (1 vols)
+  -> Pause de 5s avant la liaison suivante...
+
+
+--- Traitement de la liaison : BIA-NCE (BIA -> NCE) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [BIA-NCE] : Min=174.31€ | Max=310.89€ | Moyenne=242.60€ (2 vols)
+  -> Pause de 4s avant la liaison suivante...
+
+
+--- Traitement de la liaison : BIA-LYS (BIA -> LYS) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [BIA-LYS] : Min=166.54€ | Max=330.59€ | Moyenne=282.56€ (5 vols)
+  -> Pause de 3s avant la liaison suivante...
+
+
+--- Traitement de la liaison : FSC-ORY (FSC -> ORY) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [FSC-ORY] : Min=199.76€ | Max=325.50€ | Moyenne=265.32€ (3 vols)
+  -> Pause de 3s avant la liaison suivante...
+
+
+--- Traitement de la liaison : FSC-CDG (FSC -> CDG) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [FSC-CDG] : Min=174.29€ | Max=262.95€ | Moyenne=218.62€ (2 vols)
+  -> Pause de 5s avant la liaison suivante...
+
+
+--- Traitement de la liaison : FSC-MRS (FSC -> MRS) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [FSC-MRS] : Min=224.18€ | Max=266.12€ | Moyenne=245.15€ (2 vols)
+  -> Pause de 3s avant la liaison suivante...
+
+
+--- Traitement de la liaison : FSC-NCE (FSC -> NCE) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [FSC-NCE] : Min=192.29€ | Max=337.16€ | Moyenne=264.72€ (2 vols)
+  -> Pause de 5s avant la liaison suivante...
+
+
+--- Traitement de la liaison : CLY-ORY (CLY -> ORY) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [CLY-ORY] : Min=161.14€ | Max=344.68€ | Moyenne=227.32€ (4 vols)
+  -> Pause de 6s avant la liaison suivante...
+
+
+--- Traitement de la liaison : CLY-CDG (CLY -> CDG) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [CLY-CDG] : Min=237.77€ | Max=323.89€ | Moyenne=266.55€ (3 vols)
+  -> Pause de 3s avant la liaison suivante...
+
+
+--- Traitement de la liaison : CLY-MRS (CLY -> MRS) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [CLY-MRS] : Min=157.76€ | Max=275.18€ | Moyenne=204.81€ (5 vols)
+  -> Pause de 6s avant la liaison suivante...
+
+
+--- Traitement de la liaison : CLY-NCE (CLY -> NCE) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [CLY-NCE] : Min=227.40€ | Max=280.54€ | Moyenne=262.05€ (4 vols)
+  -> Pause de 4s avant la liaison suivante...
+
+
+--- Traitement de la liaison : ORY-AJA (ORY -> AJA) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [ORY-AJA] : Min=157.02€ | Max=193.12€ | Moyenne=175.07€ (2 vols)
+  -> Pause de 3s avant la liaison suivante...
+
+
+--- Traitement de la liaison : CDG-AJA (CDG -> AJA) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [CDG-AJA] : Min=214.37€ | Max=339.72€ | Moyenne=277.04€ (2 vols)
+  -> Pause de 4s avant la liaison suivante...
+
+
+--- Traitement de la liaison : MRS-AJA (MRS -> AJA) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [MRS-AJA] : Min=306.15€ | Max=306.15€ | Moyenne=306.15€ (1 vols)
+  -> Pause de 6s avant la liaison suivante...
+
+
+--- Traitement de la liaison : NCE-AJA (NCE -> AJA) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [NCE-AJA] : Min=170.74€ | Max=237.71€ | Moyenne=204.23€ (2 vols)
+  -> Pause de 6s avant la liaison suivante...
+
+
+--- Traitement de la liaison : LYS-AJA (LYS -> AJA) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [LYS-AJA] : Min=199.03€ | Max=300.86€ | Moyenne=246.59€ (3 vols)
+  -> Pause de 4s avant la liaison suivante...
+
+
+--- Traitement de la liaison : TLS-AJA (TLS -> AJA) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [TLS-AJA] : Min=156.89€ | Max=156.89€ | Moyenne=156.89€ (1 vols)
+  -> Pause de 3s avant la liaison suivante...
+
+
+--- Traitement de la liaison : ORY-BIA (ORY -> BIA) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [ORY-BIA] : Min=181.82€ | Max=314.58€ | Moyenne=257.87€ (3 vols)
+  -> Pause de 4s avant la liaison suivante...
+
+
+--- Traitement de la liaison : CDG-BIA (CDG -> BIA) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [CDG-BIA] : Min=195.90€ | Max=334.15€ | Moyenne=280.91€ (5 vols)
+  -> Pause de 6s avant la liaison suivante...
+
+
+--- Traitement de la liaison : MRS-BIA (MRS -> BIA) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [MRS-BIA] : Min=258.47€ | Max=310.23€ | Moyenne=277.96€ (3 vols)
+  -> Pause de 5s avant la liaison suivante...
+
+
+--- Traitement de la liaison : NCE-BIA (NCE -> BIA) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [NCE-BIA] : Min=150.39€ | Max=265.48€ | Moyenne=207.93€ (2 vols)
+  -> Pause de 3s avant la liaison suivante...
+
+
+--- Traitement de la liaison : LYS-BIA (LYS -> BIA) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [LYS-BIA] : Min=333.67€ | Max=333.67€ | Moyenne=333.67€ (1 vols)
+  -> Pause de 3s avant la liaison suivante...
+
+
+--- Traitement de la liaison : ORY-FSC (ORY -> FSC) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [ORY-FSC] : Min=173.77€ | Max=303.92€ | Moyenne=218.22€ (3 vols)
+  -> Pause de 6s avant la liaison suivante...
+
+
+--- Traitement de la liaison : CDG-FSC (CDG -> FSC) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [CDG-FSC] : Min=196.75€ | Max=277.46€ | Moyenne=244.54€ (4 vols)
+  -> Pause de 3s avant la liaison suivante...
+
+
+--- Traitement de la liaison : MRS-FSC (MRS -> FSC) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [MRS-FSC] : Min=221.89€ | Max=323.18€ | Moyenne=272.53€ (2 vols)
+  -> Pause de 5s avant la liaison suivante...
+
+
+--- Traitement de la liaison : NCE-FSC (NCE -> FSC) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [NCE-FSC] : Min=270.95€ | Max=331.02€ | Moyenne=293.00€ (5 vols)
+  -> Pause de 3s avant la liaison suivante...
+
+
+--- Traitement de la liaison : ORY-CLY (ORY -> CLY) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [ORY-CLY] : Min=159.66€ | Max=182.60€ | Moyenne=171.13€ (2 vols)
+  -> Pause de 3s avant la liaison suivante...
+
+
+--- Traitement de la liaison : CDG-CLY (CDG -> CLY) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [CDG-CLY] : Min=179.88€ | Max=346.75€ | Moyenne=277.52€ (5 vols)
+  -> Pause de 3s avant la liaison suivante...
+
+
+--- Traitement de la liaison : MRS-CLY (MRS -> CLY) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [MRS-CLY] : Min=202.54€ | Max=328.15€ | Moyenne=262.70€ (5 vols)
+  -> Pause de 4s avant la liaison suivante...
+
+
+--- Traitement de la liaison : NCE-CLY (NCE -> CLY) ---
+Date J+7 : 10/08/2026
+  -> Arrivée sur le moteur externe : https://book.aircorsica.com/plnext/AirCorsicaDX/Override.action
+  -> Avertissement : Impossible de cliquer sur CONTINUER après 3 tentatives (poursuite du flux).
+  -> Contenu avec prix détecté.
+-> Succès [NCE-CLY] : Min=163.22€ | Max=295.84€ | Moyenne=238.61€ (4 vols)
+
+[Terminé] Données sauvegardées dans prix_aircorsica_20260803.csv
+🧹 Nettoyage, normalisation et suppression des erreurs...
+✅ CSV nettoyé avec succès ! 39 lignes valides conservées (0 valeur manquante).
+Dashboard généré avec succès !
+✨ Pipeline exécuté avec succès !
