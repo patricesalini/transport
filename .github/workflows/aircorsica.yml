@@ -1,4 +1,4 @@
-name: Run Aircorsica Scraper
+name: Aircorsica
 
 on:
   schedule:
