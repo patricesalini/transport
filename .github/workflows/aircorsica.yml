@@ -1,4 +1,4 @@
-name: Aircorsica
+name: Aircorsica Pat
 
 on:
   schedule:
@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; else pip install playwright; fi
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           playwright install chromium
 
       - name: Run scraper
