@@ -1,18 +1,30 @@
-name: Air Corsica UDT Pipeline
+name: Scrape Air Corsica 
 
 on:
   schedule:
-    - cron: '0 7 * * *'  # Tous les jours à 07:00 UTC
-  workflow_dispatch:      # Permet aussi un lancement manuel depuis l'interface GitHub
+    - cron: '0 * * * *'
+  workflow_dispatch:
 
 jobs:
-  run-pipeline:
-    runs-on: self-hosted  # Utilise ton Mac comme runner
+  scrape:
+    runs-on: self-hosted
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Execute run script
+      - name: Install dependencies
         run: |
-          chmod +x ./run.sh
-          ./run.sh
+          python3 -m pip install --upgrade pip
+          pip3 install requests beautifulsoup4 pandas lxml
+
+      - name: Run scraper
+        run: |
+          python3 scraperapi.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add prix_aircorsica_*.csv historique_global.csv
+          git diff --cached --quiet || git commit -m "Mise à jour automatique des prix Air Corsica"
+          git push
