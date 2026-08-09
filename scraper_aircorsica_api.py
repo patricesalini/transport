@@ -9,11 +9,19 @@ via un accès légal. Aucune protection à contourner, aucune IP résidentielle
 requise, ça tourne sur GitHub Actions sans problème.
 
 Principe : chaque appel renvoie un prix le plus bas, une fourchette
-"typique" et un niveau de prix (price_insights) pour une date donnée.
-On interroge 5 horizons par liaison (J+7, J+30, J+60, J+90, J+120) pour
-obtenir une vraie courbe plutôt que deux points isolés. Soit 46 routes x 5
-horizons = 230 requêtes par run, qui tient dans le quota gratuit SerpApi
-(250/mois) à raison d'un run complet par mois.
+"typique" et un niveau de prix (price_insights) pour une date donnée, ainsi
+qu'un historique de prix (price_history) sur ~2 mois glissants — inclus
+gratuitement, sans requête supplémentaire. On interroge 5 horizons par
+liaison (J+7, J+30, J+60, J+90, J+120) pour obtenir une vraie courbe plutôt
+que deux points isolés. Soit 46 routes x 5 horizons = 230 requêtes par run,
+qui tient dans le quota gratuit SerpApi (250/mois) à raison d'un run
+complet par mois.
+
+Fichiers produits :
+    routes_aircorsica/<ORIGINE>_<DEST>.csv   un point par liaison/horizon
+    historique_global_france.csv             tous les points, toutes routes
+    historique_prix_google.csv               l'historique détaillé (price_history)
+                                              de chaque appel, en format long
 
 Installation :
     pip install requests
@@ -32,7 +40,7 @@ import csv
 import time
 import argparse
 import requests
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime, timezone
 
 # --- Configuration -----------------------------------------------------
 
@@ -61,6 +69,7 @@ for cor, main_list in corsica_destinations.items():
 
 OUTPUT_DIR = "routes_aircorsica"
 MASTER_FILE = "historique_global_france.csv"
+PRICE_HISTORY_FILE = "historique_prix_google.csv"
 
 DELAY_BETWEEN_CALLS = 2  # secondes, pour rester raisonnable vis-à-vis de l'API
 
@@ -69,6 +78,11 @@ DELAY_BETWEEN_CALLS = 2  # secondes, pour rester raisonnable vis-à-vis de l'API
 
 # Traduction des niveaux de prix renvoyés par l'API (anglais -> français)
 NIVEAUX_PRIX = {"low": "bas", "typical": "normal", "high": "élevé"}
+
+
+class QuotaEpuiseError(Exception):
+    """Levée quand SerpApi renvoie 429 (quota mensuel dépassé)."""
+    pass
 
 
 def query_price(origin: str, dest: str, target_date: str):
@@ -84,6 +98,11 @@ def query_price(origin: str, dest: str, target_date: str):
         "api_key": API_KEY,
     }
     resp = requests.get(API_URL, params=params, timeout=30)
+
+    if resp.status_code == 429:
+        raise QuotaEpuiseError(
+            "Quota SerpApi dépassé pour ce mois-ci (429 Too Many Requests)."
+        )
     resp.raise_for_status()
     data = resp.json()
 
@@ -100,18 +119,32 @@ def query_price(origin: str, dest: str, target_date: str):
     typical_range = insights.get("typical_price_range") or [None, None]
     niveau_en = insights.get("price_level", "")
 
+    # price_history : historique de prix (Google), format [timestamp_unix, prix].
+    # Inclus gratuitement dans chaque réponse, aucune requête supplémentaire.
+    historique_brut = insights.get("price_history") or []
+    historique = [
+        {
+            "date_point": datetime.fromtimestamp(ts, tz=timezone.utc).date().isoformat(),
+            "prix": prix,
+        }
+        for ts, prix in historique_brut
+    ]
+
     return {
         "lowest_price": insights.get("lowest_price", cheapest),
         "price_level": NIVEAUX_PRIX.get(niveau_en, niveau_en),
         "typical_min": typical_range[0],
         "typical_max": typical_range[1],
+        "price_history": historique,
     }
 
 
 # --- Écriture CSV --------------------------------------------------------
 
-def append_row(filepath: str, row: dict, fieldnames: list) -> None:
-    """Ajoute une ligne en tête de fichier (le plus récent en premier)."""
+def append_rows(filepath: str, rows: list, fieldnames: list) -> None:
+    """Ajoute une ou plusieurs lignes en tête de fichier (le plus récent en premier)."""
+    if not rows:
+        return
     existing_rows = []
     if os.path.exists(filepath):
         with open(filepath, newline="", encoding="utf-8") as f:
@@ -120,8 +153,13 @@ def append_row(filepath: str, row: dict, fieldnames: list) -> None:
     with open(filepath, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames, delimiter=";")
         writer.writeheader()
-        writer.writerow(row)
+        writer.writerows(rows)
         writer.writerows(existing_rows)
+
+
+def append_row(filepath: str, row: dict, fieldnames: list) -> None:
+    """Ajoute une seule ligne en tête de fichier (raccourci autour de append_rows)."""
+    append_rows(filepath, [row], fieldnames)
 
 
 # --- Boucle principale -----------------------------------------------------
@@ -141,11 +179,16 @@ def main(test_routes=None):
     scrape_date = date.today().isoformat()
     fieldnames = ["date_maj", "origin", "dest", "horizon", "date_cible",
                   "lowest_price", "price_level", "typical_min", "typical_max", "devise"]
+    history_fieldnames = ["date_maj", "origin", "dest", "horizon", "date_cible",
+                           "date_point", "prix", "devise"]
 
     total = len(routes) * len(HORIZONS)
     count = 0
+    quota_atteint = False
 
     for origin, dest in routes:
+        if quota_atteint:
+            break
         route_file = os.path.join(OUTPUT_DIR, f"{origin}_{dest}.csv")
 
         for horizon_label, jours in HORIZONS.items():
@@ -153,7 +196,15 @@ def main(test_routes=None):
             target_date = (date.today() + timedelta(days=jours)).isoformat()
             print(f"[{count}/{total}] {origin} -> {dest} ({horizon_label}, {target_date})")
 
-            result = query_price(origin, dest, target_date)
+            try:
+                result = query_price(origin, dest, target_date)
+            except QuotaEpuiseError as e:
+                print(f"\n⚠ {e}")
+                print(f"Arrêt propre après {count - 1} requêtes réussies. "
+                      f"Les résultats déjà obtenus sont conservés et seront committés.")
+                quota_atteint = True
+                break
+
             if result is None:
                 time.sleep(DELAY_BETWEEN_CALLS)
                 continue
@@ -174,10 +225,31 @@ def main(test_routes=None):
             append_row(route_file, row, fieldnames)
             append_row(os.path.join(OUTPUT_DIR, os.pardir, MASTER_FILE), row, fieldnames)
 
+            if result["price_history"]:
+                history_rows = [
+                    {
+                        "date_maj": scrape_date,
+                        "origin": origin,
+                        "dest": dest,
+                        "horizon": horizon_label,
+                        "date_cible": target_date,
+                        "date_point": point["date_point"],
+                        "prix": point["prix"],
+                        "devise": "EUR",
+                    }
+                    for point in result["price_history"]
+                ]
+                append_rows(os.path.join(OUTPUT_DIR, os.pardir, PRICE_HISTORY_FILE),
+                            history_rows, history_fieldnames)
+
             time.sleep(DELAY_BETWEEN_CALLS)
 
-    print(f"\nTerminé. {count} requêtes effectuées ce mois-ci "
-          f"(quota gratuit SerpApi : 250/mois — {250 - count} restantes ce mois-ci).")
+    if quota_atteint:
+        print(f"\nInterrompu par le quota. {count - 1}/{total} requêtes effectuées "
+              f"avant l'arrêt (les autres routes seront à refaire au prochain run).")
+    else:
+        print(f"\nTerminé. {count} requêtes effectuées ce mois-ci "
+              f"(quota gratuit SerpApi : 250/mois — {250 - count} restantes ce mois-ci).")
 
 
 if __name__ == "__main__":
