@@ -32,6 +32,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add routes_aircorsica/ historique_global_france.csv historique_prix_google.csv
+          [ -d routes_aircorsica ] && git add routes_aircorsica/
+          [ -f historique_global_france.csv ] && git add historique_global_france.csv
+          [ -f historique_prix_google.csv ] && git add historique_prix_google.csv
           git diff --staged --quiet || git commit -m "Mise à jour mensuelle des prix ($(date +%Y-%m-%d))"
           git push
