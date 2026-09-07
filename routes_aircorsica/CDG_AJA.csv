@@ -1,0 +1,6 @@
+date_maj;origin;dest;horizon;date_cible;lowest_price;price_level;typical_min;typical_max;devise
+2026-09-07;CDG;AJA;J120;2027-01-05;191;;;;EUR
+2026-09-07;CDG;AJA;J90;2026-12-06;219;;;;EUR
+2026-09-07;CDG;AJA;J60;2026-11-06;223;normal;175;355;EUR
+2026-09-07;CDG;AJA;J30;2026-10-07;219;;;;EUR
+2026-09-07;CDG;AJA;J7;2026-09-14;274;normal;60;290;EUR

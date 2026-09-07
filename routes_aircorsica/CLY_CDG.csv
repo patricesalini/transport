@@ -1,0 +1,6 @@
+date_maj;origin;dest;horizon;date_cible;lowest_price;price_level;typical_min;typical_max;devise
+2026-09-07;CLY;CDG;J120;2027-01-05;222;normal;175;455;EUR
+2026-09-07;CLY;CDG;J90;2026-12-06;222;normal;190;455;EUR
+2026-09-07;CLY;CDG;J60;2026-11-06;223;normal;170;455;EUR
+2026-09-07;CLY;CDG;J30;2026-10-07;195;bas;215;380;EUR
+2026-09-07;CLY;CDG;J7;2026-09-14;442;élevé;220;380;EUR

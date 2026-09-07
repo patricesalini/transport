@@ -1,0 +1,6 @@
+date_maj;origin;dest;horizon;date_cible;lowest_price;price_level;typical_min;typical_max;devise
+2026-09-07;FSC;CDG;J120;2027-01-05;189;;;;EUR
+2026-09-07;FSC;CDG;J90;2026-12-06;217;;;;EUR
+2026-09-07;FSC;CDG;J60;2026-11-06;221;normal;175;465;EUR
+2026-09-07;FSC;CDG;J30;2026-10-07;254;normal;135;360;EUR
+2026-09-07;FSC;CDG;J7;2026-09-14;281;normal;155;355;EUR

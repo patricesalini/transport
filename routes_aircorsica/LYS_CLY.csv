@@ -1,0 +1,6 @@
+date_maj;origin;dest;horizon;date_cible;lowest_price;price_level;typical_min;typical_max;devise
+2026-09-07;LYS;CLY;J120;2027-01-05;203;;;;EUR
+2026-09-07;LYS;CLY;J90;2026-12-06;150;bas;195;465;EUR
+2026-09-07;LYS;CLY;J60;2026-11-06;219;normal;180;365;EUR
+2026-09-07;LYS;CLY;J30;2026-10-07;288;normal;180;390;EUR
+2026-09-07;LYS;CLY;J7;2026-09-14;396;;;;EUR

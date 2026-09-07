@@ -1,0 +1,6 @@
+date_maj;origin;dest;horizon;date_cible;lowest_price;price_level;typical_min;typical_max;devise
+2026-09-07;AJA;MRS;J120;2027-01-05;79;bas;80;230;EUR
+2026-09-07;AJA;MRS;J90;2026-12-06;131;normal;80;250;EUR
+2026-09-07;AJA;MRS;J60;2026-11-06;131;normal;80;245;EUR
+2026-09-07;AJA;MRS;J30;2026-10-07;157;normal;80;250;EUR
+2026-09-07;AJA;MRS;J7;2026-09-14;268;élevé;125;250;EUR

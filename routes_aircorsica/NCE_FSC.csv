@@ -1,0 +1,6 @@
+date_maj;origin;dest;horizon;date_cible;lowest_price;price_level;typical_min;typical_max;devise
+2026-09-07;NCE;FSC;J120;2027-01-05;123;normal;80;240;EUR
+2026-09-07;NCE;FSC;J90;2026-12-06;123;normal;75;265;EUR
+2026-09-07;NCE;FSC;J60;2026-11-06;136;normal;75;245;EUR
+2026-09-07;NCE;FSC;J30;2026-10-07;149;normal;110;225;EUR
+2026-09-07;NCE;FSC;J7;2026-09-14;260;élevé;130;240;EUR
