@@ -9993,7 +9993,7 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<units>Sans unité</units>
 			</aux>
 			<aux name="Réduction de la compensation Orly">
-				<doc>[Politique 2c-ii] Réduction de la compensation DSP Orly consentie par l ouverture à la concurrence.</doc>
+				<doc>[Politique 2c-ii] Réduction de la compensation DSP Orly si le monopole est supprimé (ouverture à la concurrence) en maintenant les OSP (subventions résidents et fréquences hivernales). Ordre de grandeur validé par P. Salini, l effet n étant pas isolable dans les éléments publiés.</doc>
 				<eqn>0.30</eqn>
 				<units>Sans unité</units>
 			</aux>
@@ -10008,8 +10008,8 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<units>Euros</units>
 			</aux>
 			<aux name="Prix moyen non résident air">
-				<doc>[Hypothèse ajustable] Prix moyen actuel du billet non résident sur les liaisons sous DSP.</doc>
-				<eqn>200</eqn>
+				<doc>[Calé 2025] Prix moyen du billet non résident TTC sur les liaisons sous DSP, d après simulation des comptes Air Corsica 2015-2024 (P. Salini, fév. 2026) : 135 euros TTC. Les prix non résidents subissent le yield management : en plein été, relevés du 9 août 2026 entre 208 et 333 euros selon la liaison ; le prix résident affiché est de 112 euros TTC environ. Le modèle prend la moyenne annuelle, hors effets de pointe.</doc>
+				<eqn>135</eqn>
 				<units>Euros</units>
 			</aux>
 			<aux name="Elasticité de la demande non résidente air">
