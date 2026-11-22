@@ -1720,6 +1720,50 @@ Modèle dynamique de l&apos;économie corse</text_box>
 						<action target="interface:12">navigate</action>
 					</actions>
 				</button>
+				<button background="#00457C" font_weight="bold" font_color="#FFFAD1" label="Résultats DSP" uid="987" x="655" y="120" width="110" height="34">
+					<actions>
+						<action target="interface:15">navigate</action>
+					</actions>
+				</button>
+			</view>
+			<view isee:show_pages="false" background="#FFFFA9" page_width="788" page_height="528" type="interface">
+				<style/>
+				<text_box background="#FFFF94" font_weight="bold" text_align="center" vertical_text_align="center" font_color="blue" font_size="22pt" border_color="#CCCCCC" border_width="thin" border_style="solid" appearance="transparent" uid="990" x="40" y="8" width="480" height="40">Politiques DSP — Résultats</text_box>
+				<button background="#7A0041" font_weight="bold" font_color="#FFFAD1" label="Accueil" uid="991" x="655" y="12" width="110" height="34">
+					<actions>
+						<action target="interface:0">navigate</action>
+					</actions>
+				</button>
+				<button background="#00457C" font_weight="bold" font_color="#FFFAD1" label="Politiques DSP (réglages)" uid="992" x="655" y="57" width="120" height="40">
+					<actions>
+						<action target="interface:14">navigate</action>
+					</actions>
+				</button>
+				<graph background="#FFFFC9" x="24" y="70" width="364" height="350" comparative="true" type="time_series" isee:time_precision="1" isee:time_scale_by="1" show_grid="true" include_units_in_legend="false" plot_numbers="true" isee:label_pie_slices="false" num_x_grid_lines="5" num_y_grid_lines="5" num_x_labels="5" num_y_labels="3" title="Coût DSP sous politiques (millions €/an)" isee:stacked_area_alpha="0.1" left_axis_multi_scale="true" left_axis_auto_scale="true" right_axis_multi_scale="true" right_axis_auto_scale="true">
+					<plot color="blue" pen_width="3" index="0" show_y_axis="true">
+						<format precision="2" scale_by="1000000"/>
+						<entity name="Transport_extérieur.Cout_DSP_Mer_Politique"/>
+					</plot>
+					<plot color="red" pen_width="3" index="0" show_y_axis="true">
+						<format precision="2" scale_by="1000000"/>
+						<entity name="Transport_extérieur.Cout_DSP_Air_Politique"/>
+					</plot>
+					<plot color="black" pen_width="3" index="0" show_y_axis="true">
+						<format precision="2" scale_by="1000000"/>
+						<entity name="Transport_extérieur.Cout_DSP_Total_Politique"/>
+					</plot>
+				</graph>
+				<graph background="#FFFFC9" x="408" y="70" width="364" height="350" comparative="true" type="time_series" isee:time_precision="1" isee:time_scale_by="1" show_grid="true" include_units_in_legend="false" plot_numbers="true" isee:label_pie_slices="false" num_x_grid_lines="5" num_y_grid_lines="5" num_x_labels="5" num_y_labels="3" title="Passagers DSP sous politiques (pax/an)" isee:stacked_area_alpha="0.1" left_axis_multi_scale="true" left_axis_auto_scale="true" right_axis_multi_scale="true" right_axis_auto_scale="true">
+					<plot color="blue" pen_width="3" index="0" show_y_axis="true">
+						<format precision="0" scale_by="1000"/>
+						<entity name="Transport_extérieur.Passagers_DSP_Mer_Politique"/>
+					</plot>
+					<plot color="red" pen_width="3" index="0" show_y_axis="true">
+						<format precision="0" scale_by="1000"/>
+						<entity name="Transport_extérieur.Passagers_DSP_Air_Politique"/>
+					</plot>
+				</graph>
+				<text_box background="#FFFF94" text_align="left" vertical_text_align="top" font_size="9pt" uid="993" x="24" y="430" width="748" height="86">Coûts : millions d euros par an (bleu : DSP mer, rouge : DSP air, noir : total) selon les réglages de la page Politiques DSP (1 poursuite, 2 suppression, 3 modification). Passagers : DSP mer (bleu) et DSP air (rouge), en milliers, avec effets modulation tarifaire, rotations améliorées, plafonnement non-résidents.</text_box>
 			</view>
 			<isee:templates>
 				<view isee:show_pages="false" background="#FFFFA9" page_width="788" page_height="528" type="template">
