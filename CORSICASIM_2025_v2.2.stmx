@@ -1604,7 +1604,7 @@ Modèle dynamique de l&apos;économie corse</text_box>
 					<entity name="Transport_extérieur.Trafic_garanti_annuel_BOD_FSC"/>
 					<reset_to after="never">0</reset_to>
 				</slider>
-				<slider color="#FFFFC9" font_weight="bold" font_color="#009A00" font_size="14pt" uid="157" x="156" y="323" width="305" height="48" increment="5" min="0" max="700" isee:navigate_to="false" show_name="true">
+				<slider color="#FFFFC9" font_weight="bold" font_color="#009A00" font_size="14pt" uid="157" x="156" y="323" width="305" height="48" increment="0.05" min="0" max="700" isee:navigate_to="false" show_name="true">
 					<format precision="max" scale_by="1"/>
 					<entity name="Transport_extérieur.Prix_unitaire_DSP_BOD_FSC"/>
 					<reset_to after="never">0</reset_to>
@@ -9860,7 +9860,8 @@ Il est censé évlouer comme le prix de la tonne de pétrole.</doc>
 				<eqn>7803</eqn>
 			</stock>
 			<aux name="Cout total annuel DSP Air">
-				<eqn>{_l_}Cout_total_DSP_Orly+Cout_total_DSP_BaB+Cout_annuel_DSP_BOD_FSC</eqn>
+				<doc>Cout annuel total DSP aerienne : compensations Orly et Marseille-Nice + concession BOD-FSC + achat de flux annexes (routes domestiques et internationales).</doc>
+				<eqn>{_l_}Cout_total_DSP_Orly+Cout_total_DSP_BaB+Cout_annuel_DSP_BOD_FSC+Cout_annuel_achat_de_flux_annexes</eqn>
 				<units>Euros</units>
 			</aux>
 			<aux name="Total Passagers\nDSP AIr">
@@ -9979,28 +9980,33 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<units>passagers</units>
 			</aux>
 			<aux name="Init passagers BOD FSC">
-				<doc>[DSP à venir Lot 28 2025-2029] Trafic 2025 observé ligne Bordeaux-Figari (CCIC, stats déc. 2025) = 38185 passagers. Valeur initiale ; ajustable via l&apos;interface.</doc>
+				<doc>[DSP a venir Lot 28 2025-2029] Trafic 2025 observe ligne Bordeaux-Figari (CCIC, stats dec. 2025) = 38185 passagers (sens aller). Valeur initiale, ajustable via l interface. Le trafic garanti contractuel (annexe achat de flux DSP Air) est de 49856.</doc>
 				<eqn>38185</eqn>
 				<units>Passagers</units>
 			</aux>
 			<aux name="Trafic garanti annuel BOD FSC">
-				<doc>[Contrat concession 2025-2029, Annexe I] Trafic garanti annuel du sens aller. Valeur initiale = trafic 2025 observé ; à ajuster au contrat final.</doc>
-				<eqn>38185</eqn>
+				<doc>[Contrat concession Lot 28 2025-2029 / annexe achat de flux DSP Air] Trafic garanti annuel du sens aller : 49856 passagers (saison ete : 48889, saison hiver : 967). Projections fournies : 50106 (n+1), 50606 (n+2), 50606 (n+3).</doc>
+				<eqn>49856</eqn>
 				<units>Passagers</units>
 			</aux>
 			<aux name="Prix unitaire DSP BOD FSC">
-				<doc>[Contrat concession 2025-2029, art. 15 et Annexe II] Prix versé par le Concédant par passager transporté (VuA). Tarif maximal conventionnel : 700 €/vol. Valeur initiale à ajuster.</doc>
-				<eqn>60</eqn>
+				<doc>[Contrat concession Lot 28 2025-2029, art. 15 ; annexe achat de flux DSP Air] Prix verse par le Concedant par passager transporte (VuA). Calage provisoire : cout du trafic garanti 182072 euros / 49856 pax garantis = 3.65203 euros/pax. L annexe contractuelle (Airenses II) reste a publier : a ajuster des le VuA officiel.</doc>
+				<eqn>3.65203</eqn>
 				<units>Euros/passager</units>
 			</aux>
 			<aux name="Passagers DSP BOD FSC">
-				<doc>[DSP à venir Lot 28] Passagers transportés sur la liaison BOD-FSC (sens aller).</doc>
+				<doc>[DSP Lot 28] Passagers transportes sur la liaison Bordeaux-Figari (sens aller). 2025 observe : 38185 ; trafic garanti contractuel : 49856.</doc>
 				<eqn>{_l_}Init_passagers_BOD_FSC</eqn>
 				<units>Passagers</units>
 			</aux>
 			<aux name="Cout annuel DSP BOD FSC">
 				<doc>[Contrat concession 2025-2029, art. 15-16] Prix annuel = VuA x trafic réalisé, plafonné à VuA x trafic garanti.</doc>
 				<eqn>{_l_}Prix_unitaire_DSP_BOD_FSC*MIN(Passagers_DSP_BOD_FSC,Trafic_garanti_annuel_BOD_FSC)</eqn>
+				<units>Euros</units>
+			</aux>
+			<aux name="Cout annuel achat de flux annexes">
+				<doc>[Achat de flux DSP Air 2025-2029 (4 routes domestiques BOD-NTE-SXB-TLS + 6 routes internationales, hors Orly et hors Marseille-Nice)] Cout net annuel pour la collectivite (annee n) : cout du trafic garanti 6698879 euros - retribution CdC (taxe de transport) 6111692 euros = 587187 euros. Projections nettes : 491021 (n+1), 435023 (n+2), 393961 (n+3).</doc>
+				<eqn>587187</eqn>
 				<units>Euros</units>
 			</aux>
 			<aux name="Politique DSP Mer">
@@ -10124,7 +10130,7 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<units>Passagers</units>
 			</aux>
 			<aux name="Passagers DSP Air Politique">
-				<doc>Passagers air sous DSP, après effets tarifs résidents et plafonnement non résidents.</doc>
+				<doc>Passagers transportes sous DSP aerienne (Orly + Marseille-Nice + Bordeaux-Figari), apres effets des politiques air : modulation du tarif resident (2c-i) et plafonnement des tarifs non residents (2c-iii). Affiche sur la page [Politiques DSP - Resultats].</doc>
 				<eqn>{_l_}Total_Passagers_DSP_AIr*Effet_tarifs_sur_demande_résidente_air*Effet_plafond_sur_demande_non_résidente_air</eqn>
 				<units>Passagers</units>
 			</aux>
@@ -10354,7 +10360,8 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<var name="Cout_total_annuel_DSP_Air">
 					<in>Cout_total_DSP_Orly</in>
 					<in>Cout_total_DSP_BaB</in>
-				</var>
+				
+					<in>Cout_annuel_achat_de_flux_annexes</in></var>
 				<var name="Total_Passagers_DSP_AIr">
 					<in>Passagers_DSP_B_à_B</in>
 					<in>Passagers_DSP_Orly</in>
@@ -11473,8 +11480,8 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<stock x="1201" y="685" name="Rotations ORY"/>
 				<aux x="1425.88" y="732.5" width="64.25" height="9" name="Modif DSP BaB"/>
 				<stock x="1322" y="840" name="Rotations BaB"/>
-				<aux color="red" font_color="red" x="1195.88" y="993.5" width="104.25" height="9" name="Cout total annuel DSP Air"/>
-				<aux color="red" font_color="red" x="1515.88" y="616" width="66.25" height="20" name="Total Passagers\nDSP AIr"/>
+				<aux color="red" font_color="red" x="760" y="1500" width="104.25" height="9" name="Cout total annuel DSP Air"/>
+				<aux color="red" font_color="red" x="760" y="1350" width="66.25" height="20" name="Total Passagers\nDSP AIr"/>
 				<aux color="red" font_color="red" x="712.375" y="241.5" width="75.25" height="9" name="Mobilité Hors DSP"/>
 				<aux x="1165.88" y="248.5" width="86.25" height="9" name="PM théorique Air Prix"/>
 				<aux x="1130.38" y="195.5" width="79.25" height="9" name="Passagers Air Total"/>
@@ -11588,9 +11595,84 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<alias color="blue" font_style="italic" uid="807" x="389.5" y="1048.5" width="45" height="35">
 					<of>Mobilité_exterieure_totale</of>
 				</alias>
-				<aux x="-24.125" y="25.5" width="108.25" height="9" name="Passagers DSP BOD FSC"/>
-				<aux x="-20.125" y="25.5" width="100.25" height="9" name="Init passagers BOD FSC"/>
-				<aux x="-27.625" y="25.5" width="115.25" height="9" name="Passagers DSP Air Politique"/>
+				<aux x="400" y="1350" width="108.25" height="9" name="Passagers DSP BOD FSC"/>
+				<aux x="40" y="1350" width="100.25" height="9" name="Init passagers BOD FSC"/>
+				<aux x="1120" y="1350" width="115.25" height="9" name="Passagers DSP Air Politique"/>
+				<aux x="40" y="1420" width="185" height="20" name="Trafic garanti annuel BOD FSC"/>
+				<aux x="40" y="1490" width="165" height="20" name="Prix unitaire DSP BOD FSC"/>
+				<aux x="40" y="1560" width="195" height="20" name="Cout annuel achat de flux annexes"/>
+				<aux x="400" y="1455" width="150" height="20" name="Cout annuel DSP BOD FSC"/>
+				<aux x="1480" y="1290" width="185" height="20" name="Effet tarifs sur demande résidente air"/>
+				<aux x="1480" y="1360" width="205" height="20" name="Effet plafond sur demande non résidente air"/>
+				<aux x="1800" y="1290" width="185" height="20" name="Taux de modulation du tarif résident"/>
+				<aux x="1800" y="1430" width="165" height="20" name="Plafonner tarifs non résidents"/>
+				<aux x="1800" y="1500" width="165" height="20" name="Prix moyen non résident air"/>
+				<aux x="1800" y="1570" width="165" height="20" name="Plafond tarif non résident air"/>
+				<aux x="1800" y="1220" width="130" height="20" name="Politique DSP Air"/>
+				<connector uid="2001" angle="0">
+					<from>Init_passagers_BOD_FSC</from>
+					<to>Passagers_DSP_BOD_FSC</to>
+				</connector>
+				<connector uid="2002" angle="0">
+					<from>Passagers_DSP_BOD_FSC</from>
+					<to>Cout_annuel_DSP_BOD_FSC</to>
+				</connector>
+				<connector uid="2003" angle="0">
+					<from>Prix_unitaire_DSP_BOD_FSC</from>
+					<to>Cout_annuel_DSP_BOD_FSC</to>
+				</connector>
+				<connector uid="2004" angle="0">
+					<from>Trafic_garanti_annuel_BOD_FSC</from>
+					<to>Cout_annuel_DSP_BOD_FSC</to>
+				</connector>
+				<connector uid="2005" angle="0">
+					<from>Cout_annuel_DSP_BOD_FSC</from>
+					<to>Cout_total_annuel_DSP_Air</to>
+				</connector>
+				<connector uid="2006" angle="0">
+					<from>Cout_annuel_achat_de_flux_annexes</from>
+					<to>Cout_total_annuel_DSP_Air</to>
+				</connector>
+				<connector uid="2007" angle="0">
+					<from>Passagers_DSP_BOD_FSC</from>
+					<to>Total_Passagers_DSP_AIr</to>
+				</connector>
+				<connector uid="2008" angle="0">
+					<from>Total_Passagers_DSP_AIr</from>
+					<to>Passagers_DSP_Air_Politique</to>
+				</connector>
+				<connector uid="2009" angle="0">
+					<from>Effet_tarifs_sur_demande_résidente_air</from>
+					<to>Passagers_DSP_Air_Politique</to>
+				</connector>
+				<connector uid="2010" angle="0">
+					<from>Effet_plafond_sur_demande_non_résidente_air</from>
+					<to>Passagers_DSP_Air_Politique</to>
+				</connector>
+				<connector uid="2011" angle="0">
+					<from>Taux_de_modulation_du_tarif_résident</from>
+					<to>Effet_tarifs_sur_demande_résidente_air</to>
+				</connector>
+				<connector uid="2012" angle="0">
+					<from>Politique_DSP_Air</from>
+					<to>Effet_tarifs_sur_demande_résidente_air</to>
+				</connector>
+				<connector uid="2013" angle="0">
+					<from>Plafonner_tarifs_non_résidents</from>
+					<to>Effet_plafond_sur_demande_non_résidente_air</to>
+				</connector>
+				<connector uid="2014" angle="0">
+					<from>Plafond_tarif_non_résident_air</from>
+					<to>Effet_plafond_sur_demande_non_résidente_air</to>
+				</connector>
+				<connector uid="2015" angle="0">
+					<from>Prix_moyen_non_résident_air</from>
+					<to>Effet_plafond_sur_demande_non_résidente_air</to>
+				</connector>
+				<connector uid="2016" angle="0">
+					<from>Politique_DSP_Air</from>
+					<to>Effet_plafond_sur_demande_non_résidente_air</to>
+				</connector>
 			</view>
 			<view page_height="528" background="white" page_width="788" home_view="true" type="interface" isee:show_pages="false">
 				<style/>
