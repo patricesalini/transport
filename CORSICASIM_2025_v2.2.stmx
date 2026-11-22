@@ -9479,10 +9479,6 @@ Ce nombre évolue en fonction de la demande générale de transport de fret entr
 				<eqn>638</eqn>
 				<units>meters</units>
 			</aux>
-			<aux name="Initi mètres linéaires DSP">
-				<eqn>Mètres_linéaires_DSP_par_traversée*Init_Traversées_DSP_Mer</eqn>
-				<units>meters</units>
-			</aux>
 			<aux name="Init nombre moyen de passager Hors DSP">
 				<doc>Nombre moyen observé de passagers par traversée hors DSP</doc>
 				<eqn>361.7</eqn>
@@ -9634,30 +9630,8 @@ le passge du prix du pétrole au prix des différentes énergie n&apos;est pas �
 			</flow>
 			<stock name="Passagers\nDSP Mer">
 				<eqn>Init_Passagers_DSP_mer</eqn>
-				<inflow>Var_Pass</inflow>
 				<units>Passagers</units>
 			</stock>
-			<flow name="Var Pass">
-				<eqn>Passagers_DSP_Mer*(DERIVN(Converter_4,1)/Converter_4+Tx_Mob_exter_touristique)</eqn>
-				<units>passagers/yr</units>
-			</flow>
-			<aux name="Nombre moyen Passagers DSP Mer">
-				<eqn>Passagers_DSP_Mer/Traversées_DSP_Mer</eqn>
-				<units>Passagers</units>
-			</aux>
-			<aux name="Init part de marché Mer">
-				<doc>La part de marché globale en 2013 est de 56,8%.
-Elle fluctue dansle temps en fonction essentiellement du dynamisme (prix, productivité, capacité, de l&apos;offre. 
-
-Largement exogène, la stratégie des opérateurs est ici essentielle. 
-Mais les données de cout et de productivité latene (innovation) doiven être prises en compe) 
-
-Il reste que le maritime est un transporteur de masse.. et que l&apos;aérien est plus propice à l&apos;étalement (capacités unitaires faibles, modulation des OD etc..)
-
-
-</doc>
-				<eqn>0.568</eqn>
-			</aux>
 			<aux name="Tx Mob exter touristique" flow_concept="true">
 				<eqn>Var_Mob/Mobilité_exterieure_totale</eqn>
 			</aux>
@@ -9705,11 +9679,6 @@ Il reste que le maritime est un transporteur de masse.. et que l&apos;aérien es
 				<eqn>0.22*Cout_de_la_Tonne_EP</eqn>
 				<units>Euros</units>
 			</aux>
-			<aux name="Supplément investissement">
-				<doc>Estimation grossière</doc>
-				<eqn>(SMTH3(Indice_Cout_navires_si_renouvellement,5)-1)*200</eqn>
-				<units>Euros</units>
-			</aux>
 			<aux name="Init Traversées Italie">
 				<eqn>960</eqn>
 				<units>Traversées</units>
@@ -9721,46 +9690,16 @@ Il reste que le maritime est un transporteur de masse.. et que l&apos;aérien es
 			</aux>
 			<stock name="Traversées Italie">
 				<eqn>Init_Traversées_Italie</eqn>
-				<inflow>Var_traversées_italie</inflow>
 				<units>Traversées</units>
 			</stock>
 			<stock name="Traversées France Hors DSP">
 				<eqn>Init_traversées_France_Hors_DSP</eqn>
-				<inflow>VAr_traversées_Frances_Hors_DSP</inflow>
 				<units>Traversées</units>
 			</stock>
 			<stock name="Traversées Bonifacio">
 				<eqn>Init_Traversées_Bonifacio</eqn>
-				<inflow>Var_Traversées_Bonifacio</inflow>
 				<units>Traversées</units>
 			</stock>
-			<flow name="Var traversées italie">
-				<eqn>TIME</eqn>
-				<gf type="discrete">
-					<xscale min="2025" max="2045"/>
-					<yscale min="-500" max="500"/>
-					<ypts>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</ypts>
-				</gf>
-				<units>traversées/yr</units>
-			</flow>
-			<flow name="VAr traversées\nFrances Hors DSP">
-				<eqn>TIME</eqn>
-				<gf type="discrete">
-					<xscale min="2025" max="2045"/>
-					<yscale min="-3000" max="3000"/>
-					<ypts>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</ypts>
-				</gf>
-				<units>traversées/yr</units>
-			</flow>
-			<flow name="Var Traversées Bonifacio">
-				<eqn>TIME</eqn>
-				<gf type="discrete">
-					<xscale min="2025" max="2045"/>
-					<yscale min="-2000" max="2000"/>
-					<ypts>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</ypts>
-				</gf>
-				<units>traversées/yr</units>
-			</flow>
 			<aux name="Cout annuel Italie">
 				<eqn>Cout_par_traversée_Italie*Traversées_Italie</eqn>
 				<units>Euros</units>
@@ -9776,10 +9715,6 @@ Il reste que le maritime est un transporteur de masse.. et que l&apos;aérien es
 			<aux name="Init passagers Bonifacio">
 				<doc>[Recalage 2025] Trafic.csv : Bonifacio 2025.</doc>
 				<eqn>268012</eqn>
-				<units>Passagers</units>
-			</aux>
-			<aux name="Init passagers France hors DSP">
-				<eqn>Init_Passagers_hors_DSP_Mer-Init_passagers_Bonifacio-Init_passagers_italie</eqn>
 				<units>Passagers</units>
 			</aux>
 			<aux name="Init passagers italie">
@@ -9824,10 +9759,6 @@ A tester.</doc>
 			<aux name="Init tx remplissage B à B">
 				<eqn>0.773</eqn>
 			</aux>
-			<aux name="Init rotations hors DSP">
-				<eqn>8815</eqn>
-				<units>Rotations</units>
-			</aux>
 			<aux name="Capacité DSP Orly">
 				<eqn>Capacité_Moyenne_par_rotation_DSP_Orly*Rotations_aériennes_DSP_Orly</eqn>
 				<units>Passagers</units>
@@ -9856,12 +9787,10 @@ A tester.</doc>
 			</aux>
 			<stock name="Passagers DSP Orly">
 				<eqn>Init_Passagers_DSP_Orly</eqn>
-				<inflow>Var_Passagers_DSP_ORY</inflow>
 				<units>Passagers</units>
 			</stock>
 			<stock name="Passagers DSP B à B">
 				<eqn>Init_passagers_B_à_B</eqn>
-				<inflow>Var_Passagers_DSP_BaB</inflow>
 				<units>Passagers</units>
 			</stock>
 			<aux name="Init passagers\nhors DSP air">
@@ -9883,13 +9812,8 @@ A tester.</doc>
 				<doc>On a pris le niveau de 0,9 € par litre. 
 Il est censé évlouer comme le prix de la tonne de pétrole.</doc>
 				<eqn>0.9</eqn>
-				<inflow>Var_prix_Kero</inflow>
 				<units>Euros</units>
 			</stock>
-			<flow name="Var prix Kero">
-				<eqn>Taux_de_croissance_du_prix_de_la_TEP*Prix_du_Kerosène</eqn>
-				<units>eur/yr</units>
-			</flow>
 			<aux name="Cout énergie par rotation BaB">
 				<eqn>Prix_du_Kerosène*Consommation_Moyenne_par_rotation_BaB</eqn>
 			</aux>
@@ -9914,23 +9838,6 @@ Il est censé évlouer comme le prix de la tonne de pétrole.</doc>
 				<eqn>Rotations_BaB*Cout_énergie_par_rotation_BaB+Cout_Rotations_BaB_hors_énergie</eqn>
 				<units>Euros</units>
 			</aux>
-			<aux name="Cout par rotation Ory">
-				<eqn>Cout_total_DSP_Orly/Rotations_aériennes_DSP_Orly</eqn>
-				<units>Euros</units>
-			</aux>
-			<aux name="Cout par rotation BaB">
-				<eqn>Cout_total_DSP_BaB/Rotations_BaB</eqn>
-				<units>Euros</units>
-			</aux>
-			<flow name="Var Passagers DSP ORY">
-				<eqn>Passagers_DSP_Orly*((DERIVN(Converter_4,1))/Converter_4+0*Tx_Mob_exter_touristique)</eqn>
-				<units>passagers/yr</units>
-			</flow>
-			<flow name="Var Passagers DSP BaB">
-				<eqn>Passagers_DSP_B_à_B*((DERIVN(Converter_4,1))
-/Converter_4+Tx_Mob_exter_touristique*.6)</eqn>
-				<units>passagers/yr</units>
-			</flow>
 			<aux name="Innovation Energie Air">
 				<doc>On estime possible un gain de 15 % environ de la consommation avec les nouveaux avion (320 Neo par exemple)</doc>
 				<eqn>TIME</eqn>
@@ -9945,21 +9852,13 @@ Il est censé évlouer comme le prix de la tonne de pétrole.</doc>
 			</aux>
 			<stock name="Rotations ORY">
 				<eqn>4429</eqn>
-				<inflow>var_rotations</inflow>
 			</stock>
-			<flow name="var rotations">
-				<eqn>Modification_DSP_ORY</eqn>
-			</flow>
 			<aux name="Modif DSP BaB">
 				<eqn>IF Passagers_DSP_B_à_B&gt;(Capacité_B_à_B*.95) THEN .1 ELSE 0</eqn>
 			</aux>
 			<stock name="Rotations BaB">
 				<eqn>7803</eqn>
-				<inflow>Var_Rotations_BaB</inflow>
 			</stock>
-			<flow name="Var Rotations BaB">
-				<eqn>Rotations_BaB*Modif_DSP_BaB</eqn>
-			</flow>
 			<aux name="Cout total annuel DSP Air">
 				<eqn>{_l_}Cout_total_DSP_Orly+Cout_total_DSP_BaB+Cout_annuel_DSP_BOD_FSC</eqn>
 				<units>Euros</units>
@@ -10078,14 +9977,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<doc>Observé : passagers mer + air (Trafic.csv).</doc>
 				<eqn>Obs_passagers_Mer+Obs_passagers_Air</eqn>
 				<units>passagers</units>
-			</aux>
-			<aux name="Ecart part Air">
-				<doc>Part de marché aérien simulée moins observée, en points (significatif seulement jusqu&apos;en 2025).</doc>
-				<eqn>{_l_}IF TIME &lt; 2026 THEN Part_de_marché_AIR-Obs_part_Air ELSE 0</eqn>
-			</aux>
-			<aux name="Ecart mobilité totale">
-				<doc>Mobilité extérieure simulée / observée - 1, en % (significatif seulement jusqu&apos;en 2025).</doc>
-				<eqn>IF TIME &lt; 2026 THEN 100*(Mobilité_exterieure_totale/Obs_mobilité_totale-1) ELSE 0</eqn>
 			</aux>
 			<aux name="Init passagers BOD FSC">
 				<doc>[DSP à venir Lot 28 2025-2029] Trafic 2025 observé ligne Bordeaux-Figari (CCIC, stats déc. 2025) = 38185 passagers. Valeur initiale ; ajustable via l&apos;interface.</doc>
@@ -10248,10 +10139,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<var name="Mètres_linéaires_DSP_par_traversée">
 					<in>Init_mètres_linéaires_DSP_par_traveersée</in>
 				</var>
-				<var name="Initi_mètres_linéaires_DSP">
-					<in>Init_Traversées_DSP_Mer</in>
-					<in>Mètres_linéaires_DSP_par_traversée</in>
-				</var>
 				<var name="Init_Passagers_hors_DSP_Mer">
 					<in>Init_Traversées_Bonifacio</in>
 					<in>Init_nombre_moyen_de_passager_Hors_DSP</in>
@@ -10316,15 +10203,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<var name="Passagers_DSP_Mer">
 					<in>Init_Passagers_DSP_mer</in>
 				</var>
-				<var name="Var_Pass">
-					<in>Passagers_DSP_Mer</in>
-					<in>Tx_Mob_exter_touristique</in>
-					<in>Converter_4</in>
-				</var>
-				<var name="Nombre_moyen_Passagers_DSP_Mer">
-					<in>Traversées_DSP_Mer</in>
-					<in>Passagers_DSP_Mer</in>
-				</var>
 				<var name="Tx_Mob_exter_touristique">
 					<in>Var_Mob</in>
 					<in>Mobilité_exterieure_totale</in>
@@ -10359,9 +10237,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<var name="Cout_traversée_Energie_Bonifacio">
 					<in>Cout_de_la_Tonne_EP</in>
 				</var>
-				<var name="Supplément_investissement">
-					<in>Indice_Cout_navires_si_renouvellement</in>
-				</var>
 				<var name="Traversées_Italie">
 					<in>Init_Traversées_Italie</in>
 				</var>
@@ -10382,11 +10257,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<var name="Cout_annuel_Bonifacio">
 					<in>Cout_traversée_Bonifacio</in>
 					<in>Traversées_Bonifacio</in>
-				</var>
-				<var name="Init_passagers_France_hors_DSP">
-					<in>Init_passagers_Bonifacio</in>
-					<in>Init_Passagers_hors_DSP_Mer</in>
-					<in>Init_passagers_italie</in>
 				</var>
 				<var name="Cout_annuel_Ferries">
 					<in>Cout_Annuel_DSP_mer</in>
@@ -10448,10 +10318,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<var name="Cout_rotations_Orly_Hors_énergie">
 					<in>Rotations_aériennes_DSP_Orly</in>
 				</var>
-				<var name="Var_prix_Kero">
-					<in>Prix_du_Kerosène</in>
-					<in>Taux_de_croissance_du_prix_de_la_TEP</in>
-				</var>
 				<var name="Cout_énergie_par_rotation_BaB">
 					<in>Prix_du_Kerosène</in>
 					<in>Consommation_Moyenne_par_rotation_BaB</in>
@@ -10476,39 +10342,14 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					<in>Rotations_BaB</in>
 					<in>Cout_Rotations_BaB_hors_énergie</in>
 				</var>
-				<var name="Cout_par_rotation_Ory">
-					<in>Cout_total_DSP_Orly</in>
-					<in>Rotations_aériennes_DSP_Orly</in>
-				</var>
-				<var name="Cout_par_rotation_BaB">
-					<in>Rotations_BaB</in>
-					<in>Cout_total_DSP_BaB</in>
-				</var>
-				<var name="Var_Passagers_DSP_ORY">
-					<in>Tx_Mob_exter_touristique</in>
-					<in>Passagers_DSP_Orly</in>
-					<in>Converter_4</in>
-				</var>
-				<var name="Var_Passagers_DSP_BaB">
-					<in>Converter_4</in>
-					<in>Tx_Mob_exter_touristique</in>
-					<in>Passagers_DSP_B_à_B</in>
-				</var>
 				<var name="Modification_DSP_ORY">
 					<in>Passagers_DSP_Orly</in>
 					<in>Rotations_ORY</in>
 					<in>Capacité_DSP_Orly</in>
 				</var>
-				<var name="var_rotations">
-					<in>Modification_DSP_ORY</in>
-				</var>
 				<var name="Modif_DSP_BaB">
 					<in>Passagers_DSP_B_à_B</in>
 					<in>Capacité_B_à_B</in>
-				</var>
-				<var name="Var_Rotations_BaB">
-					<in>Modif_DSP_BaB</in>
-					<in>Rotations_BaB</in>
 				</var>
 				<var name="Cout_total_annuel_DSP_Air">
 					<in>Cout_total_DSP_Orly</in>
@@ -10584,10 +10425,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					<in>Obs_passagers_Mer</in>
 					<in>Obs_passagers_Air</in>
 				</var>
-				<var name="Ecart_mobilité_totale">
-					<in>Obs_mobilité_totale</in>
-					<in>Mobilité_exterieure_totale</in>
-				</var>
 			</isee:dependencies>
 		</variables>
 		<views>
@@ -10662,12 +10499,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					</graph>
 					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" isee:report_month_names="false" interval="1" report_balances="ending" report_flows="summed"/>
 				</style>
-				<connector uid="618" angle="349.695">
-					<from>
-						<alias uid="619"/>
-					</from>
-					<to>Cout_par_rotation_BaB</to>
-				</connector>
 				<connector uid="620" angle="20.2249">
 					<from>Init_tx_remplissage_B_à_B</from>
 					<to>Init_passagers_B_à_B</to>
@@ -10703,10 +10534,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<connector uid="629" angle="329.744">
 					<from>Cout_Energie_par_traversée_DSP</from>
 					<to>Cout_énergie_par_traversée_Hors_DSP_France</to>
-				</connector>
-				<connector uid="630" angle="278.13">
-					<from>Init_Traversées_DSP_Mer</from>
-					<to>Initi_mètres_linéaires_DSP</to>
 				</connector>
 				<connector uid="631" angle="246.801">
 					<from>Indice_de_cout_énergétique_Mer</from>
@@ -10754,12 +10581,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					<from>Cout_énergie_par_rotation_Orly</from>
 					<to>Cout_total_DSP_Orly</to>
 				</connector>
-				<connector uid="643" angle="321.94">
-					<from>
-						<alias uid="644"/>
-					</from>
-					<to>Var_Passagers_DSP_BaB</to>
-				</connector>
 				<connector uid="645" angle="265.914">
 					<from>
 						<alias uid="646"/>
@@ -10788,10 +10609,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					<from>Cout_traversée_hors_énergie_Italie</from>
 					<to>Cout_par_traversée_Italie</to>
 				</connector>
-				<connector uid="653" angle="234.782">
-					<from>Passagers_DSP_Mer</from>
-					<to>Var_Pass</to>
-				</connector>
 				<connector uid="654" angle="125.538">
 					<from>Var_Mob</from>
 					<to>Tx_Mob_exter_touristique</to>
@@ -10803,10 +10620,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<connector uid="656" angle="246.801">
 					<from>Cout_traversée_Bonifacio</from>
 					<to>Cout_annuel_Bonifacio</to>
-				</connector>
-				<connector uid="657" angle="214.287">
-					<from>Prix_du_Kerosène</from>
-					<to>Var_prix_Kero</to>
 				</connector>
 				<connector uid="658" angle="135">
 					<from>
@@ -10848,16 +10661,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					<from>Init_passagers_moyen_Mer_DSP</from>
 					<to>Nombre_de_passagers_moyen_par_traversée_DSP</to>
 				</connector>
-				<connector uid="669" angle="335.095">
-					<from>Mètres_linéaires_DSP_par_traversée</from>
-					<to>Initi_mètres_linéaires_DSP</to>
-				</connector>
-				<connector uid="670" angle="11.0035">
-					<from>
-						<alias uid="671"/>
-					</from>
-					<to>Var_Passagers_DSP_ORY</to>
-				</connector>
 				<connector uid="672" angle="129.806">
 					<from>Mobilité_exterieure_totale</from>
 					<to>Tx_Mob_exter_touristique</to>
@@ -10869,14 +10672,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<connector uid="674" angle="5.19443">
 					<from>Cout_de_la_Tonne_EP</from>
 					<to>Cout_traversée_Energie_Bonifacio</to>
-				</connector>
-				<connector uid="675" angle="278.13">
-					<from>Init_passagers_Bonifacio</from>
-					<to>Init_passagers_France_hors_DSP</to>
-				</connector>
-				<connector uid="676" angle="154.44">
-					<from>Passagers_DSP_Orly</from>
-					<to>Var_Passagers_DSP_ORY</to>
 				</connector>
 				<connector uid="677" angle="289.44">
 					<from>Traversées_DSP_Mer</from>
@@ -10894,19 +10689,9 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					</from>
 					<to>Ratio_cout_DSP_sur_passagers</to>
 				</connector>
-				<connector uid="682" angle="98.7462">
-					<from>
-						<alias uid="646"/>
-					</from>
-					<to>Supplément_investissement</to>
-				</connector>
 				<connector uid="683" angle="113.199">
 					<from>Capacité_DSP_Orly</from>
 					<to>Init_Passagers_DSP_Orly</to>
-				</connector>
-				<connector uid="684" angle="325.713">
-					<from>Traversées_DSP_Mer</from>
-					<to>Nombre_moyen_Passagers_DSP_Mer</to>
 				</connector>
 				<connector uid="685" angle="216.384">
 					<from>
@@ -10980,10 +10765,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					<from>Cout_de_la_TEP</from>
 					<to>Taux_de_croissance_du_prix_de_la_TEP</to>
 				</connector>
-				<connector uid="703" angle="258.343">
-					<from>Modification_DSP_ORY</from>
-					<to>var_rotations</to>
-				</connector>
 				<connector uid="704" angle="329.744">
 					<from>
 						<alias uid="705"/>
@@ -11008,12 +10789,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					</from>
 					<to>Indice_des_prix_de_transport</to>
 				</connector>
-				<connector uid="710" angle="240.255">
-					<from>
-						<alias uid="671"/>
-					</from>
-					<to>Var_Passagers_DSP_BaB</to>
-				</connector>
 				<connector uid="711" angle="343.072">
 					<from>Capacité_DSP_Orly</from>
 					<to>Modification_DSP_ORY</to>
@@ -11025,14 +10800,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<connector uid="713" angle="1.94149">
 					<from>Init_mobilité_des_résidents</from>
 					<to>Mobilité_des_résidents</to>
-				</connector>
-				<connector uid="714" angle="136.806">
-					<from>Tx_Mob_exter_touristique</from>
-					<to>Var_Pass</to>
-				</connector>
-				<connector uid="715" angle="343.61">
-					<from>Init_Passagers_hors_DSP_Mer</from>
-					<to>Init_passagers_France_hors_DSP</to>
 				</connector>
 				<connector uid="716" angle="205.017">
 					<from>Indice_cout_Aérien</from>
@@ -11076,10 +10843,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					<from>Indice_Cout_navires_si_renouvellement</from>
 					<to>Prise_en_compte_renouvellement</to>
 				</connector>
-				<connector uid="726" angle="54.4623">
-					<from>Cout_total_DSP_Orly</from>
-					<to>Cout_par_rotation_Ory</to>
-				</connector>
 				<connector uid="727" angle="125.538">
 					<from>PM_théorique_Air_Prix</from>
 					<to>Passagers_Air_Total</to>
@@ -11091,10 +10854,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<connector uid="729" angle="2.48955">
 					<from>Passagers_DSP_B_à_B</from>
 					<to>Total_Passagers_DSP_AIr</to>
-				</connector>
-				<connector uid="730" angle="25.0169">
-					<from>Converter_4</from>
-					<to>Var_Pass</to>
 				</connector>
 				<connector uid="731" angle="10.8855">
 					<from>Consommation_énergie_DSP_par_Traversée</from>
@@ -11142,10 +10901,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					</from>
 					<to>Passagers_Mer_Hors_DSP</to>
 				</connector>
-				<connector uid="744" angle="200.225">
-					<from>Init_passagers_italie</from>
-					<to>Init_passagers_France_hors_DSP</to>
-				</connector>
 				<connector uid="745" angle="278.13">
 					<from>Init_Traversées_Italie</from>
 					<to>Init_Passagers_hors_DSP_Mer</to>
@@ -11161,10 +10916,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<connector uid="748" angle="119.745">
 					<from>Converter_1</from>
 					<to>Cout_du_Gaz</to>
-				</connector>
-				<connector uid="749" angle="191.976">
-					<from>Modif_DSP_BaB</from>
-					<to>Var_Rotations_BaB</to>
 				</connector>
 				<connector uid="750" angle="30.5792">
 					<from>Mobilité_exterieure_totale</from>
@@ -11194,16 +10945,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					<from>Capacité_moyenne_par_rotation_B_à_B</from>
 					<to>Capacité_B_à_B</to>
 				</connector>
-				<connector uid="756" angle="133.432">
-					<from>Taux_de_croissance_du_prix_de_la_TEP</from>
-					<to>Var_prix_Kero</to>
-				</connector>
-				<connector uid="757" angle="41.4139">
-					<from>
-						<alias uid="644"/>
-					</from>
-					<to>Var_Passagers_DSP_ORY</to>
-				</connector>
 				<connector uid="758" angle="226.848">
 					<from>Rotations_ORY</from>
 					<to>Rotations_aériennes_DSP_Orly</to>
@@ -11223,12 +10964,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<connector uid="762" angle="153.435">
 					<from>K</from>
 					<to>Indice_cout_Aérien</to>
-				</connector>
-				<connector uid="763" angle="333.435">
-					<from>
-						<alias uid="625"/>
-					</from>
-					<to>Cout_par_rotation_Ory</to>
 				</connector>
 				<connector uid="764" angle="90">
 					<from>
@@ -11304,17 +11039,9 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					<from>Init_traversées_France_Hors_DSP</from>
 					<to>Init_Passagers_hors_DSP_Mer</to>
 				</connector>
-				<connector uid="784" angle="293.199">
-					<from>Cout_total_DSP_BaB</from>
-					<to>Cout_par_rotation_BaB</to>
-				</connector>
 				<connector uid="785" angle="322.125">
 					<from>Part_du_FOL</from>
 					<to>Cout_de_la_Tonne_EP</to>
-				</connector>
-				<connector uid="786" angle="149.421">
-					<from>Passagers_DSP_B_à_B</from>
-					<to>Var_Passagers_DSP_BaB</to>
 				</connector>
 				<connector uid="787" angle="229.399">
 					<from>Passagers_Mer_total</from>
@@ -11331,10 +11058,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<connector uid="790" angle="34.992">
 					<from>Passagers_Mer_total</from>
 					<to>Part_de_marché_AIR</to>
-				</connector>
-				<connector uid="791" angle="251.565">
-					<from>Passagers_DSP_Mer</from>
-					<to>Nombre_moyen_Passagers_DSP_Mer</to>
 				</connector>
 				<connector uid="792" angle="343.072">
 					<from>Cout_traversée_Energie_Bonifacio</from>
@@ -11359,10 +11082,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<connector uid="796" angle="285.945">
 					<from>Rotations_aériennes_DSP_Orly</from>
 					<to>Cout_rotations_Orly_Hors_énergie</to>
-				</connector>
-				<connector uid="797" angle="155.556">
-					<from>Rotations_BaB</from>
-					<to>Var_Rotations_BaB</to>
 				</connector>
 				<connector uid="798" angle="189.039">
 					<from>Passagers_Air_Total</from>
@@ -11660,7 +11379,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<aux x="259.875" y="42.5" width="126.25" height="9" name="Init passagers moyen Mer DSP"/>
 				<aux x="40.875" y="218" width="76.25" height="20" name="Mètres linéaires DSP par traversée"/>
 				<aux x="22.375" y="146" width="81.25" height="20" name="Init mètres linéaires DSP par traveersée"/>
-				<aux x="102.375" y="211.5" width="103.25" height="9" name="Initi mètres linéaires DSP"/>
 				<aux x="422.375" y="58" width="89.25" height="20" name="Init nombre moyen de passager Hors DSP"/>
 				<aux x="557.375" y="163" width="59.25" height="20" name="Init Passagers\nhors DSP Mer"/>
 				<aux x="284.875" y="156.5" width="124.25" height="9" name="Init Nombre total de passagers"/>
@@ -11700,14 +11418,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					</pts>
 				</flow>
 				<stock color="red" font_color="red" label_side="center" x="597" y="263" name="Passagers\nDSP Mer"/>
-				<flow x="528.25" y="259" name="Var Pass">
-					<pts>
-						<pt x="470" y="259"/>
-						<pt x="574.5" y="259"/>
-					</pts>
-				</flow>
-				<aux x="351.375" y="296.5" width="147.25" height="9" name="Nombre moyen Passagers DSP Mer"/>
-				<aux x="1008.38" y="11.5" width="95.25" height="9" name="Init part de marché Mer"/>
 				<aux x="605.875" y="373.5" width="98.25" height="9" name="Tx Mob exter touristique"/>
 				<aux x="619.875" y="52.5" width="100.25" height="9" name="Init Traversées Bonifacio"/>
 				<aux x="437.875" y="631" width="112.25" height="20" name="Cout énergie par traversée Hors DSP France"/>
@@ -11720,35 +11430,15 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<aux x="476.875" y="850" width="80.25" height="20" name="Sup Investissement Italie par traversée"/>
 				<aux color="red" font_color="red" x="320.875" y="562.5" width="100.25" height="9" name="Cout traversée Bonifacio"/>
 				<aux x="249.875" y="587" width="72.25" height="20" name="Cout traversée Energie Bonifacio"/>
-				<aux x="377.875" y="695.5" width="112.25" height="9" name="Supplément investissement"/>
 				<aux x="535.875" y="28.5" width="82.25" height="9" name="Init Traversées Italie"/>
 				<aux x="739.375" y="91.5" width="131.25" height="9" name="Init traversées France Hors DSP"/>
 				<stock x="709" y="766" name="Traversées Italie"/>
 				<stock x="464" y="428" name="Traversées France Hors DSP"/>
 				<stock x="340" y="746" name="Traversées Bonifacio"/>
-				<flow x="667.75" y="770" name="Var traversées italie">
-					<pts>
-						<pt x="637" y="770"/>
-						<pt x="686.5" y="770"/>
-					</pts>
-				</flow>
-				<flow x="396.75" y="424" name="VAr traversées\nFrances Hors DSP">
-					<pts>
-						<pt x="340" y="424"/>
-						<pt x="441.5" y="424"/>
-					</pts>
-				</flow>
-				<flow x="276.75" y="748" name="Var Traversées Bonifacio">
-					<pts>
-						<pt x="224" y="748"/>
-						<pt x="317.5" y="748"/>
-					</pts>
-				</flow>
 				<aux color="red" font_color="red" x="589.875" y="823.5" width="72.25" height="9" name="Cout annuel Italie"/>
 				<aux color="red" font_color="red" label_side="top" x="420.375" y="501" width="71.25" height="20" name="Cout Annuel\nFrance hors DSP"/>
 				<aux x="282.875" y="651.5" width="90.25" height="9" name="Cout annuel Bonifacio"/>
 				<aux x="667.375" y="155.5" width="97.25" height="9" name="Init passagers Bonifacio"/>
-				<aux x="655.375" y="206.5" width="129.25" height="9" name="Init passagers France hors DSP"/>
 				<aux x="781.375" y="168.5" width="79.25" height="9" name="Init passagers italie"/>
 				<aux color="blue" label_side="left" x="567.375" y="460.5" width="81.25" height="9" name="Cout annuel Ferries"/>
 				<aux x="104.875" y="876.5" width="126.25" height="9" name="Indice de cout énergétique Mer"/>
@@ -11760,7 +11450,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<aux x="1015.88" y="720.5" width="122.25" height="9" name="Rotations aériennes DSP Orly"/>
 				<aux x="926.375" y="539.5" width="93.25" height="9" name="Init tx remplissage Orly"/>
 				<aux x="828.375" y="651.5" width="99.25" height="9" name="Init tx remplissage B à B"/>
-				<aux x="587.875" y="1136.5" width="92.25" height="9" name="Init rotations hors DSP"/>
 				<aux x="1016.38" y="631.5" width="77.25" height="9" name="Capacité DSP Orly"/>
 				<aux x="888.875" y="690.5" width="62.25" height="9" name="Capacité B à B"/>
 				<aux x="1018.38" y="579.5" width="99.25" height="9" name="Init Passagers DSP Orly"/>
@@ -11773,49 +11462,17 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<aux x="993.375" y="801" width="81.25" height="20" name="Cout Rotations BaB\nhors énergie"/>
 				<aux x="1056.38" y="768" width="77.25" height="20" name="Cout rotations Orly\nHors énergie"/>
 				<stock x="939" y="962" name="Prix du Kerosène"/>
-				<flow color="blue" label_side="top" x="889.25" y="965" name="Var prix Kero">
-					<pts>
-						<pt x="850" y="965"/>
-						<pt x="916.5" y="965"/>
-					</pts>
-				</flow>
 				<aux x="1018.38" y="1031.5" width="121.25" height="9" name="Cout énergie par rotation BaB"/>
 				<aux x="1014.88" y="953.5" width="120.25" height="9" name="Cout énergie par rotation Orly"/>
 				<aux x="970.875" y="880" width="102.25" height="20" name="Consommation moyenne par rotation Orly"/>
 				<aux x="986.875" y="1102" width="102.25" height="20" name="Consommation Moyenne par rotation BaB"/>
 				<aux x="1092.88" y="934.5" width="80.25" height="9" name="Cout total DSP Orly"/>
 				<aux x="1175.38" y="1038.5" width="81.25" height="9" name="Cout total DSP BaB"/>
-				<aux x="1185.88" y="933.5" width="86.25" height="9" name="Cout par rotation Ory"/>
-				<aux x="1210.88" y="1138.5" width="88.25" height="9" name="Cout par rotation BaB"/>
-				<flow x="1386.75" y="597" name="Var Passagers DSP ORY">
-					<pts>
-						<pt x="1325" y="597"/>
-						<pt x="1436.5" y="597"/>
-					</pts>
-				</flow>
-				<flow x="1396.75" y="686" name="Var Passagers DSP BaB">
-					<pts>
-						<pt x="1343" y="686"/>
-						<pt x="1438.5" y="686"/>
-					</pts>
-				</flow>
 				<aux x="726.875" y="1057.5" width="90.25" height="9" name="Innovation Energie Air"/>
 				<aux color="blue" label_side="top" x="1130.38" y="576.5" width="93.25" height="9" name="Modification DSP ORY"/>
 				<stock x="1201" y="685" name="Rotations ORY"/>
-				<flow x="1155.75" y="684" name="var rotations">
-					<pts>
-						<pt x="1121" y="684"/>
-						<pt x="1178.5" y="684"/>
-					</pts>
-				</flow>
 				<aux x="1425.88" y="732.5" width="64.25" height="9" name="Modif DSP BaB"/>
 				<stock x="1322" y="840" name="Rotations BaB"/>
-				<flow x="1272.25" y="842" name="Var Rotations BaB">
-					<pts>
-						<pt x="1233" y="842"/>
-						<pt x="1299.5" y="842"/>
-					</pts>
-				</flow>
 				<aux color="red" font_color="red" x="1195.88" y="993.5" width="104.25" height="9" name="Cout total annuel DSP Air"/>
 				<aux color="red" font_color="red" x="1515.88" y="616" width="66.25" height="20" name="Total Passagers\nDSP AIr"/>
 				<aux color="red" font_color="red" x="712.375" y="241.5" width="75.25" height="9" name="Mobilité Hors DSP"/>
@@ -11839,8 +11496,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<aux x="252.375" y="1203.5" width="75.25" height="9" name="Obs passagers Air"/>
 				<aux x="380.375" y="1208.5" width="49.25" height="9" name="Obs part Air"/>
 				<aux x="163.875" y="1139.5" width="76.25" height="9" name="Obs mobilité totale"/>
-				<aux x="377.875" y="1130.5" width="54.25" height="9" name="Ecart part Air"/>
-				<aux x="283.375" y="1113.5" width="81.25" height="9" name="Ecart mobilité totale"/>
 				<alias color="red" font_style="italic" font_color="red" uid="681" x="1360.88" y="29.5" width="90.25" height="9">
 					<of>Cout_Annuel_DSP_mer</of>
 				</alias>
@@ -11930,19 +11585,9 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					<from>Obs_passagers_Air</from>
 					<to>Obs_mobilité_totale</to>
 				</connector>
-				<connector uid="806" angle="21.1613">
-					<from>Obs_mobilité_totale</from>
-					<to>Ecart_mobilité_totale</to>
-				</connector>
 				<alias color="blue" font_style="italic" uid="807" x="389.5" y="1048.5" width="45" height="35">
 					<of>Mobilité_exterieure_totale</of>
 				</alias>
-				<connector uid="808" angle="195.154">
-					<from>
-						<alias uid="807"/>
-					</from>
-					<to>Ecart_mobilité_totale</to>
-				</connector>
 				<aux x="-24.125" y="25.5" width="108.25" height="9" name="Passagers DSP BOD FSC"/>
 				<aux x="-20.125" y="25.5" width="100.25" height="9" name="Init passagers BOD FSC"/>
 				<aux x="-27.625" y="25.5" width="115.25" height="9" name="Passagers DSP Air Politique"/>
