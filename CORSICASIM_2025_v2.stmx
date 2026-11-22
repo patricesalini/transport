@@ -441,6 +441,16 @@ Modèle dynamique de l&apos;économie corse</text_box>
 						<action>restore_all</action>
 					</actions>
 				</button>
+				<button background="#006B54" font_weight="bold" font_color="#FFFAD1" label="DSP BOD-FSC" uid="940" x="650" y="200" width="120" height="34">
+					<actions>
+						<action target="interface:13">navigate</action>
+					</actions>
+				</button>
+				<button background="#00457C" font_weight="bold" font_color="#FFFAD1" label="Politiques DSP" uid="941" x="650" y="244" width="128" height="34">
+					<actions>
+						<action target="interface:14">navigate</action>
+					</actions>
+				</button>
 			</view>
 			<view isee:show_pages="false" background="#FFFFA9" page_width="788" page_height="528" type="interface">
 				<style/>
@@ -1449,6 +1459,17 @@ Modèle dynamique de l&apos;économie corse</text_box>
 					<entity name="Transport_extérieur.Prix_unitaire_DSP_BOD_FSC"/>
 					<reset_to after="never">0</reset_to>
 				</slider>
+				<text_box background="#FFFF94" text_align="center" vertical_text_align="center" font_color="blue" font_size="22pt" border_color="#CCCCCC" border_width="thin" border_style="solid" uid="942" x="140" y="15" width="500" height="46">DSP BOD-FSC (contrat Lot 28, 2025-2029)</text_box>
+				<button background="#7A0041" font_weight="bold" font_color="#FFFAD1" label="Accueil" uid="943" x="650" y="15" width="110" height="34">
+					<actions>
+						<action target="interface:0">navigate</action>
+					</actions>
+				</button>
+				<button background="#00457C" font_weight="bold" font_color="#FFFAD1" label="Politiques DSP" uid="944" x="650" y="60" width="128" height="34">
+					<actions>
+						<action target="interface:14">navigate</action>
+					</actions>
+				</button>
 			</view>
 			<view isee:show_pages="false" background="#FFFFA9" page_width="788" page_height="528" type="interface">
 				<style/>
@@ -1552,6 +1573,12 @@ Modèle dynamique de l&apos;économie corse</text_box>
 					</plot>
 				</graph>
 				<text_box color="black" background="#FFFFC9" text_align="left" vertical_text_align="top" font_size="10pt" uid="930" x="545" y="395" width="225" height="115">Politiques DSP — Mer : 1 poursuite, 2 suppression, 3 modification (modulation prix garanti par ml, export seul, hors Aja/Bia, rotations améliorées). Air : 1 poursuite, 2 suppression, 3 modification (tarif résident modulé, monopole Orly supprimé — OSP maintenus, plafond tarifs non-résidents). Parts export et hors Aja/Bia : hypothèses à caler.</text_box>
+				<text_box background="#FFFF94" text_align="center" vertical_text_align="center" font_color="blue" font_size="22pt" border_color="#CCCCCC" border_width="thin" border_style="solid" uid="945" x="40" y="8" width="480" height="40">Politiques DSP — Mer &amp; Air</text_box>
+				<button background="#7A0041" font_weight="bold" font_color="#FFFAD1" label="Accueil" uid="946" x="655" y="12" width="110" height="34">
+					<actions>
+						<action target="interface:0">navigate</action>
+					</actions>
+				</button>
 			</view>
 			<isee:templates>
 				<view isee:show_pages="false" background="#FFFFA9" page_width="788" page_height="528" type="template">
