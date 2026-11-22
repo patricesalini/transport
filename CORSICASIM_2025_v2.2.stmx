@@ -10357,7 +10357,7 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					<in>Passagers_DSP_B_à_B</in>
 					<in>Capacité_B_à_B</in>
 				</var>
-								<var name="Cout_DSP_Air_Politique">
+				<var name="Cout_DSP_Air_Politique">
 					<in>Politique_DSP_Air</in>
 					<in>Supprimer_le_monopole_Orly</in>
 					<in>Réduction_de_la_compensation_Orly</in>
@@ -10410,7 +10410,7 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					<in>Plafond_tarif_non_résident_air</in>
 					<in>Elasticité_de_la_demande_non_résidente_air</in>
 				</var>
-				<var name="Cout_du_FOL">
+								<var name="Cout_du_FOL">
 					<in>Cout_de_la_TEP</in>
 				</var>
 				<var name="Cout_du_GO">
@@ -11733,102 +11733,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<connector uid="2016" angle="0">
 					<from>Politique_DSP_Air</from>
 					<to>Effet_plafond_sur_demande_non_résidente_air</to>
-				</connector>
-				<connector uid="2041" angle="0">
-					<from>Politique_DSP_Air</from>
-					<to>Cout_DSP_Air_Politique</to>
-				</connector>
-				<connector uid="2042" angle="0">
-					<from>Supprimer_le_monopole_Orly</from>
-					<to>Cout_DSP_Air_Politique</to>
-				</connector>
-				<connector uid="2043" angle="0">
-					<from>Réduction_de_la_compensation_Orly</from>
-					<to>Cout_DSP_Air_Politique</to>
-				</connector>
-				<connector uid="2044" angle="0">
-					<from>Cout_total_annuel_DSP_Air</from>
-					<to>Cout_DSP_Air_Politique</to>
-				</connector>
-				<connector uid="2045" angle="0">
-					<from>Politique_DSP_Mer</from>
-					<to>Cout_DSP_Mer_Politique</to>
-				</connector>
-				<connector uid="2046" angle="0">
-					<from>Taux_de_modulation_du_prix_garanti_par_ml</from>
-					<to>Cout_DSP_Mer_Politique</to>
-				</connector>
-				<connector uid="2047" angle="0">
-					<from>Financer_export_uniquement</from>
-					<to>Cout_DSP_Mer_Politique</to>
-				</connector>
-				<connector uid="2048" angle="0">
-					<from>Part_du_trafic_export_dans_la_DSP_mer</from>
-					<to>Cout_DSP_Mer_Politique</to>
-				</connector>
-				<connector uid="2049" angle="0">
-					<from>Financer_hors_Ajaccio_Bastia</from>
-					<to>Cout_DSP_Mer_Politique</to>
-				</connector>
-				<connector uid="2050" angle="0">
-					<from>Part_traversées_DSP_hors_Ajaccio_Bastia</from>
-					<to>Cout_DSP_Mer_Politique</to>
-				</connector>
-				<connector uid="2051" angle="0">
-					<from>Améliorer_les_rotations_mer</from>
-					<to>Cout_DSP_Mer_Politique</to>
-				</connector>
-				<connector uid="2052" angle="0">
-					<from>Hausse_des_traversées_par_rotation_améliorée</from>
-					<to>Cout_DSP_Mer_Politique</to>
-				</connector>
-				<connector uid="2053" angle="0">
-					<from>Cout_Annuel_DSP_mer</from>
-					<to>Cout_DSP_Mer_Politique</to>
-				</connector>
-				<connector uid="2054" angle="0">
-					<from>Cout_DSP_Mer_Politique</from>
-					<to>Cout_DSP_Total_Politique</to>
-				</connector>
-				<connector uid="2055" angle="0">
-					<from>Cout_DSP_Air_Politique</from>
-					<to>Cout_DSP_Total_Politique</to>
-				</connector>
-				<connector uid="2056" angle="0">
-					<from>Passagers_DSP_Mer</from>
-					<to>Passagers_DSP_Mer_Politique</to>
-				</connector>
-				<connector uid="2057" angle="0">
-					<from>Politique_DSP_Mer</from>
-					<to>Passagers_DSP_Mer_Politique</to>
-				</connector>
-				<connector uid="2058" angle="0">
-					<from>Améliorer_les_rotations_mer</from>
-					<to>Passagers_DSP_Mer_Politique</to>
-				</connector>
-				<connector uid="2059" angle="0">
-					<from>Hausse_des_traversées_par_rotation_améliorée</from>
-					<to>Passagers_DSP_Mer_Politique</to>
-				</connector>
-				<connector uid="2060" angle="0">
-					<from>Hausse_du_remplissage_par_rotation_améliorée</from>
-					<to>Passagers_DSP_Mer_Politique</to>
-				</connector>
-				<connector uid="2061" angle="0">
-					<from>Elasticité_de_la_demande_résidente_air</from>
-					<to>Effet_tarifs_sur_demande_résidente_air</to>
-				</connector>
-				<connector uid="2062" angle="0">
-					<from>Elasticité_de_la_demande_non_résidente_air</from>
-					<to>Effet_plafond_sur_demande_non_résidente_air</to>
-				</connector>
-				<connector uid="2063" angle="0">
-					<from>Cout_de_la_TEP</from>
-					<to>Cout_du_FOL</to>
-				</connector>
-				<connector uid="2064" angle="0">
-					<from>Cout_de_la_TEP</from>
-					<to>Cout_du_GO</to>
 				</connector>
 			</view>
 			<view page_height="528" background="white" page_width="788" home_view="true" type="interface" isee:show_pages="false">
