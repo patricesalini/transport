@@ -9943,8 +9943,8 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<units>Sans unité</units>
 			</aux>
 			<aux name="Part du trafic export dans la DSP mer">
-				<doc>[Hypothèse ajustable] Part de l activité marchandises export dans le coût couvert par la DSP mer. À caler sur les données OTC.</doc>
-				<eqn>0.5</eqn>
+				<doc>[Calé 2025] Part du trafic marchandises export (Corse) dans le coût couvert par la DSP mer. Estimation Patrice Salini sur Ports de Corse déc. 2025 : export ≈ 1/10 du trafic sous DSP (objectif : augmenter). Données : _12-2025_marchandises_detaillees.</doc>
+				<eqn>0.10</eqn>
 				<units>Sans unité</units>
 			</aux>
 			<aux name="Financer hors Ajaccio Bastia">
@@ -9953,8 +9953,8 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<units>Sans unité</units>
 			</aux>
 			<aux name="Part traversées DSP hors Ajaccio Bastia">
-				<doc>[Hypothèse ajustable] Part des traversées/revenus DSP mer hors liaisons Ajaccio et Bastia (répartition indicative par lots 1 à 5, DSP 2021-2022).</doc>
-				<eqn>0.55</eqn>
+				<doc>[Calé 2025] Part des traversées/revenus DSP mer hors liaisons Ajaccio et Bastia. Ports de Corse déc. 2025 : Aja+Bia = 82,4% du régulier national (2 160 192 / 2 620 720 t) ; reste Ile-Rousse, Porto-Vecchio, Propriano.</doc>
+				<eqn>0.18</eqn>
 				<units>Sans unité</units>
 			</aux>
 			<aux name="Améliorer les rotations mer">
