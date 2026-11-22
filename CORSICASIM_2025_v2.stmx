@@ -1450,6 +1450,109 @@ Modèle dynamique de l&apos;économie corse</text_box>
 					<reset_to after="never">0</reset_to>
 				</slider>
 			</view>
+			<view isee:show_pages="false" background="#FFFFA9" page_width="788" page_height="528" type="interface">
+				<style/>
+				<slider color="#FFFFC9" font_color="#FF0080" uid="910" x="40" y="40" width="250" height="40" increment="1" min="1" max="3" isee:navigate_to="false" show_name="true">
+					<format precision="1" scale_by="1"/>
+					<entity name="Transport_extérieur.Politique_DSP_Mer"/>
+					<reset_to after="never">0</reset_to>
+				</slider>
+				<slider color="#FFFFC9" font_color="#FF0080" uid="911" x="40" y="90" width="250" height="40" increment="0.05" min="0" max="1.5" isee:navigate_to="false" show_name="true">
+					<format precision="0.05" scale_by="1"/>
+					<entity name="Transport_extérieur.Taux_de_modulation_du_prix_garanti_par_ml"/>
+					<reset_to after="never">0</reset_to>
+				</slider>
+				<switch color="#FFFFC9" label_side="bottom" uid="912" x="55" y="140" width="38" height="20" show_name="true">
+					<entity name="Transport_extérieur.Financer_export_uniquement"/>
+					<reset_to after="never">0</reset_to>
+				</switch>
+				<slider color="#FFFFC9" font_color="#FF0080" uid="913" x="40" y="180" width="250" height="40" increment="0.05" min="0" max="1" isee:navigate_to="false" show_name="true">
+					<format precision="0.05" scale_by="1"/>
+					<entity name="Transport_extérieur.Part_du_trafic_export_dans_la_DSP_mer"/>
+					<reset_to after="never">0</reset_to>
+				</slider>
+				<switch color="#FFFFC9" label_side="bottom" uid="914" x="55" y="225" width="38" height="20" show_name="true">
+					<entity name="Transport_extérieur.Financer_hors_Ajaccio_Bastia"/>
+					<reset_to after="never">0</reset_to>
+				</switch>
+				<slider color="#FFFFC9" font_color="#FF0080" uid="915" x="40" y="270" width="250" height="40" increment="0.05" min="0" max="1" isee:navigate_to="false" show_name="true">
+					<format precision="0.05" scale_by="1"/>
+					<entity name="Transport_extérieur.Part_traversées_DSP_hors_Ajaccio_Bastia"/>
+					<reset_to after="never">0</reset_to>
+				</slider>
+				<switch color="#FFFFC9" label_side="bottom" uid="916" x="55" y="315" width="38" height="20" show_name="true">
+					<entity name="Transport_extérieur.Améliorer_les_rotations_mer"/>
+					<reset_to after="never">0</reset_to>
+				</switch>
+				<slider color="#FFFFC9" font_color="#FF0080" uid="917" x="40" y="355" width="250" height="40" increment="0.01" min="0" max="0.3" isee:navigate_to="false" show_name="true">
+					<format precision="0.01" scale_by="1"/>
+					<entity name="Transport_extérieur.Hausse_des_traversées_par_rotation_améliorée"/>
+					<reset_to after="never">0</reset_to>
+				</slider>
+				<slider color="#FFFFC9" font_color="#FF0080" uid="918" x="40" y="400" width="250" height="40" increment="0.01" min="0" max="0.3" isee:navigate_to="false" show_name="true">
+					<format precision="0.01" scale_by="1"/>
+					<entity name="Transport_extérieur.Hausse_du_remplissage_par_rotation_améliorée"/>
+					<reset_to after="never">0</reset_to>
+				</slider>
+				<slider color="#FFFFC9" font_color="#FF0080" uid="919" x="285" y="40" width="250" height="40" increment="1" min="1" max="3" isee:navigate_to="false" show_name="true">
+					<format precision="1" scale_by="1"/>
+					<entity name="Transport_extérieur.Politique_DSP_Air"/>
+					<reset_to after="never">0</reset_to>
+				</slider>
+				<slider color="#FFFFC9" font_color="#FF0080" uid="920" x="285" y="90" width="250" height="40" increment="0.05" min="0" max="1.5" isee:navigate_to="false" show_name="true">
+					<format precision="0.05" scale_by="1"/>
+					<entity name="Transport_extérieur.Taux_de_modulation_du_tarif_résident"/>
+					<reset_to after="never">0</reset_to>
+				</slider>
+				<slider color="#FFFFC9" font_color="#FF0080" uid="921" x="285" y="145" width="250" height="40" increment="0.05" min="0.1" max="1.5" isee:navigate_to="false" show_name="true">
+					<format precision="0.05" scale_by="1"/>
+					<entity name="Transport_extérieur.Elasticité_de_la_demande_résidente_air"/>
+					<reset_to after="never">0</reset_to>
+				</slider>
+				<switch color="#FFFFC9" label_side="bottom" uid="922" x="300" y="205" width="38" height="20" show_name="true">
+					<entity name="Transport_extérieur.Supprimer_le_monopole_Orly"/>
+					<reset_to after="never">0</reset_to>
+				</switch>
+				<slider color="#FFFFC9" font_color="#FF0080" uid="923" x="285" y="270" width="250" height="40" increment="0.05" min="0" max="0.6" isee:navigate_to="false" show_name="true">
+					<format precision="0.05" scale_by="1"/>
+					<entity name="Transport_extérieur.Réduction_de_la_compensation_Orly"/>
+					<reset_to after="never">0</reset_to>
+				</slider>
+				<switch color="#FFFFC9" label_side="bottom" uid="924" x="300" y="315" width="38" height="20" show_name="true">
+					<entity name="Transport_extérieur.Plafonner_tarifs_non_résidents"/>
+					<reset_to after="never">0</reset_to>
+				</switch>
+				<slider color="#FFFFC9" font_color="#FF0080" uid="925" x="285" y="355" width="250" height="40" increment="10" min="0" max="700" isee:navigate_to="false" show_name="true">
+					<format precision="0" scale_by="1"/>
+					<entity name="Transport_extérieur.Plafond_tarif_non_résident_air"/>
+					<reset_to after="never">0</reset_to>
+				</slider>
+				<slider color="#FFFFC9" font_color="#FF0080" uid="926" x="285" y="400" width="250" height="40" increment="10" min="0" max="300" isee:navigate_to="false" show_name="true">
+					<format precision="0" scale_by="1"/>
+					<entity name="Transport_extérieur.Prix_moyen_non_résident_air"/>
+					<reset_to after="never">0</reset_to>
+				</slider>
+				<slider color="#FFFFC9" font_color="#FF0080" uid="927" x="285" y="455" width="250" height="40" increment="0.05" min="0.1" max="1.5" isee:navigate_to="false" show_name="true">
+					<format precision="0.05" scale_by="1"/>
+					<entity name="Transport_extérieur.Elasticité_de_la_demande_non_résidente_air"/>
+					<reset_to after="never">0</reset_to>
+				</slider>
+				<graph background="#FFFFC9" x="545" y="55" width="225" height="330" comparative="true" type="time_series" isee:time_precision="1" isee:time_scale_by="1" show_grid="true" include_units_in_legend="false" plot_numbers="true" isee:label_pie_slices="false" num_x_grid_lines="5" num_y_grid_lines="5" num_x_labels="5" num_y_labels="3" title="Coût DSP sous politiques (€/an)" isee:stacked_area_alpha="0.1" left_axis_multi_scale="true" left_axis_auto_scale="true" right_axis_multi_scale="true" right_axis_auto_scale="true">
+					<plot color="blue" pen_width="3" index="0" show_y_axis="true">
+						<format precision="0" scale_by="1000000"/>
+						<entity name="Transport_extérieur.Cout_DSP_Mer_Politique"/>
+					</plot>
+					<plot color="red" pen_width="3" index="0" show_y_axis="true">
+						<format precision="0" scale_by="1000000"/>
+						<entity name="Transport_extérieur.Cout_DSP_Air_Politique"/>
+					</plot>
+					<plot color="black" pen_width="3" index="0" show_y_axis="true">
+						<format precision="0" scale_by="1000000"/>
+						<entity name="Transport_extérieur.Cout_DSP_Total_Politique"/>
+					</plot>
+				</graph>
+				<text_box color="black" background="#FFFFC9" text_align="left" vertical_text_align="top" font_size="10pt" uid="930" x="545" y="395" width="225" height="115">Politiques DSP — Mer : 1 poursuite, 2 suppression, 3 modification (modulation prix garanti par ml, export seul, hors Aja/Bia, rotations améliorées). Air : 1 poursuite, 2 suppression, 3 modification (tarif résident modulé, monopole Orly supprimé — OSP maintenus, plafond tarifs non-résidents). Parts export et hors Aja/Bia : hypothèses à caler.</text_box>
+			</view>
 			<isee:templates>
 				<view isee:show_pages="false" background="#FFFFA9" page_width="788" page_height="528" type="template">
 					<style/>
@@ -9772,7 +9875,157 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<doc>Mobilité extérieure simulée / observée - 1, en % (significatif seulement jusqu&apos;en 2025).</doc>
 				<eqn>{_l_}IF TIME &lt; 2026 THEN 100*(Mobilité_exterieure_totale/Obs_mobilité_totale-1) ELSE 0</eqn>
 			</aux>
-			<isee:dependencies>
+			<aux name="Init passagers BOD_FSC">
+				<doc>[DSP à venir Lot 28 2025-2029] Trafic 2025 observé ligne Bordeaux-Figari (CCIC, stats déc. 2025) = 38185 passagers. Valeur initiale ; ajustable via l'interface.</doc>
+				<eqn>38185</eqn>
+				<units>Passagers</units>
+			</aux>
+			<aux name="Trafic garanti annuel BOD_FSC">
+				<doc>[Contrat concession 2025-2029, Annexe I] Trafic garanti annuel du sens aller. Valeur initiale = trafic 2025 observé ; à ajuster au contrat final.</doc>
+				<eqn>38185</eqn>
+				<units>Passagers</units>
+			</aux>
+			<aux name="Prix unitaire DSP BOD_FSC">
+				<doc>[Contrat concession 2025-2029, art. 15 et Annexe II] Prix versé par le Concédant par passager transporté (VuA). Tarif maximal conventionnel : 700 €/vol. Valeur initiale à ajuster.</doc>
+				<eqn>60</eqn>
+				<units>Euros/passager</units>
+			</aux>
+			<aux name="Passagers DSP BOD_FSC">
+				<doc>[DSP à venir Lot 28] Passagers transportés sur la liaison BOD-FSC (sens aller).</doc>
+				<eqn>Init_passagers_BOD_FSC</eqn>
+				<units>Passagers</units>
+			</aux>
+			<aux name="Cout annuel DSP BOD_FSC">
+				<doc>[Contrat concession 2025-2029, art. 15-16] Prix annuel = VuA x trafic réalisé, plafonné à VuA x trafic garanti.</doc>
+				<eqn>Prix_unitaire_DSP_BOD_FSC*MIN(Passagers_DSP_BOD_FSC,Trafic_garanti_annuel_BOD_FSC)</eqn>
+				<units>Euros</units>
+			</aux>
+			<aux name="Politique DSP Mer">
+				<doc>[Politique 1a/1b/1c] 1 = poursuite à l identique ; 2 = suppression pure et simple ; 3 = modification des règles et niveaux de subvention (les subventions ne concernent que les marchandises).</doc>
+				<eqn>1</eqn>
+				<units>Sans unité</units>
+			</aux>
+			<aux name="Taux de modulation du prix garanti par ml">
+				<doc>[Politique 1c-i] Modulation du niveau des prix garantis par la DSP par mètre linéaire de marchandises. 1.0 = inchangé.</doc>
+				<eqn>1</eqn>
+				<units>Sans unité</units>
+			</aux>
+			<aux name="Financer export uniquement">
+				<doc>[Politique 1c-ii] Si 1 : la DSP ne finance que les tarifs d exportation (chaînes Corse vers continent).</doc>
+				<eqn>0</eqn>
+				<units>Sans unité</units>
+			</aux>
+			<aux name="Part du trafic export dans la DSP mer">
+				<doc>[Hypothèse ajustable] Part de l activité marchandises export dans le coût couvert par la DSP mer. À caler sur les données OTC.</doc>
+				<eqn>0.5</eqn>
+				<units>Sans unité</units>
+			</aux>
+			<aux name="Financer hors Ajaccio Bastia">
+				<doc>[Politique 1c-iii] Si 1 : ne plus financer les liaisons DSP desservant Ajaccio et Bastia.</doc>
+				<eqn>0</eqn>
+				<units>Sans unité</units>
+			</aux>
+			<aux name="Part traversées DSP hors Ajaccio Bastia">
+				<doc>[Hypothèse ajustable] Part des traversées/revenus DSP mer hors liaisons Ajaccio et Bastia (répartition indicative par lots 1 à 5, DSP 2021-2022).</doc>
+				<eqn>0.55</eqn>
+				<units>Sans unité</units>
+			</aux>
+			<aux name="Améliorer les rotations mer">
+				<doc>[Politique 1c-iv] Si 1 : escales en Corse et horaires modifiés -> augmentation des rotations de navires et des remplissages.</doc>
+				<eqn>0</eqn>
+				<units>Sans unité</units>
+			</aux>
+			<aux name="Hausse des traversées par rotation améliorée">
+				<doc>[Politique 1c-iv] Hausse relative du nombre de traversées due aux escales/horaires améliorés.</doc>
+				<eqn>0.15</eqn>
+				<units>Sans unité</units>
+			</aux>
+			<aux name="Hausse du remplissage par rotation améliorée">
+				<doc>[Politique 1c-iv] Hausse relative du remplissage (passagers/ml) due aux escales/horaires améliorés.</doc>
+				<eqn>0.10</eqn>
+				<units>Sans unité</units>
+			</aux>
+			<aux name="Politique DSP Air">
+				<doc>[Politique 2a/2b/2c] 1 = poursuite à l identique ; 2 = suppression pure et simple ; 3 = modification des règles et niveaux de subvention (non exclusive).</doc>
+				<eqn>1</eqn>
+				<units>Sans unité</units>
+			</aux>
+			<aux name="Taux de modulation du tarif résident">
+				<doc>[Politique 2c-i] Modulation du niveau des prix garantis par la DSP pour les résidents. Base 2025 : 66 € HT Orly, 23,50 € HT Marseille/Nice. 1.0 = inchangé.</doc>
+				<eqn>1</eqn>
+				<units>Sans unité</units>
+			</aux>
+			<aux name="Elasticité de la demande résidente air">
+				<doc>[Hypothèse] Elasticité de la demande résidente au tarif résident effectif.</doc>
+				<eqn>0.5</eqn>
+				<units>Sans unité</units>
+			</aux>
+			<aux name="Supprimer le monopole Orly">
+				<doc>[Politique 2c-ii] Si 1 : ouverture à la concurrence de la liaison Orly (fin de l exclusivité), maintien des OSP : subventions résidents et fréquences hivernales conservées.</doc>
+				<eqn>0</eqn>
+				<units>Sans unité</units>
+			</aux>
+			<aux name="Réduction de la compensation Orly">
+				<doc>[Politique 2c-ii] Réduction de la compensation DSP Orly consentie par l ouverture à la concurrence.</doc>
+				<eqn>0.30</eqn>
+				<units>Sans unité</units>
+			</aux>
+			<aux name="Plafonner tarifs non résidents">
+				<doc>[Politique 2c-iii] Si 1 : plafonnement des tarifs des liaisons sous DSP pour les non-résidents.</doc>
+				<eqn>0</eqn>
+				<units>Sans unité</units>
+			</aux>
+			<aux name="Plafond tarif non résident air">
+				<doc>[Politique 2c-iii] Plafond tarifaire appliqué aux non-résidents sur les liaisons sous DSP (tarif maximal conventionnel : 700 €).</doc>
+				<eqn>150</eqn>
+				<units>Euros</units>
+			</aux>
+			<aux name="Prix moyen non résident air">
+				<doc>[Hypothèse ajustable] Prix moyen actuel du billet non résident sur les liaisons sous DSP.</doc>
+				<eqn>200</eqn>
+				<units>Euros</units>
+			</aux>
+			<aux name="Elasticité de la demande non résidente air">
+				<doc>[Hypothèse] Elasticité de la demande non résidente au prix.</doc>
+				<eqn>0.8</eqn>
+				<units>Sans unité</units>
+			</aux>
+			<aux name="Effet tarifs sur demande résidente air">
+				<doc>Facteur multiplicatif appliqué au trafic résident DSP air, issu de la modulation du tarif résident (Politique 2c-i).</doc>
+				<eqn>IF Politique_DSP_Air=3 THEN (1/Taux_de_modulation_du_tarif_résident)^Elasticité_de_la_demande_résidente_air ELSE 1</eqn>
+				<units>Sans unité</units>
+			</aux>
+			<aux name="Effet plafond sur demande non résidente air">
+				<doc>Facteur multiplicatif appliqué au trafic non résident DSP air, issu du plafonnement des tarifs (Politique 2c-iii), borné à +50 %.</doc>
+				<eqn>IF Politique_DSP_Air=3 AND Plafonner_tarifs_non_résidents=1 AND Plafond_tarif_non_résident_air&lt;Prix_moyen_non_résident_air THEN MIN((Prix_moyen_non_résident_air/Plafond_tarif_non_résident_air)^Elasticité_de_la_demande_non_résidente_air, 1.5) ELSE 1</eqn>
+				<units>Sans unité</units>
+			</aux>
+			<aux name="Cout DSP Mer Politique">
+				<doc>Coût annuel DSP mer sous les politiques retenues (1a/1b/1c avec options i à iv).</doc>
+				<eqn>IF Politique_DSP_Mer=2 THEN 0 ELSE Cout_Annuel_DSP_mer*(IF Politique_DSP_Mer=3 THEN Taux_de_modulation_du_prix_garanti_par_ml*(IF Financer_export_uniquement=1 THEN Part_du_trafic_export_dans_la_DSP_mer ELSE 1)*(IF Financer_hors_Ajaccio_Bastia=1 THEN Part_traversées_DSP_hors_Ajaccio_Bastia ELSE 1)*(IF Améliorer_les_rotations_mer=1 THEN 1+Hausse_des_traversées_par_rotation_améliorée ELSE 1) ELSE 1)</eqn>
+				<units>Euros</units>
+			</aux>
+			<aux name="Cout DSP Air Politique">
+				<doc>Coût annuel DSP air sous les politiques retenues (2a/2b/2c). Suppression du monopole Orly : OSP maintenues, compensation réduite.</doc>
+				<eqn>IF Politique_DSP_Air=2 THEN 0 ELSE Cout_total_annuel_DSP_Air*(IF Politique_DSP_Air=3 THEN 1-(IF Supprimer_le_monopole_Orly=1 THEN Réduction_de_la_compensation_Orly ELSE 0) ELSE 1)</eqn>
+				<units>Euros</units>
+			</aux>
+			<aux name="Cout DSP Total Politique">
+				<doc>Coût budgétaire total des DSP (mer + air, dont lot BOD-FSC) sous les politiques retenues.</doc>
+				<eqn>Cout_DSP_Mer_Politique+Cout_DSP_Air_Politique</eqn>
+				<units>Euros</units>
+			</aux>
+			<aux name="Passagers DSP Mer Politique">
+				<doc>Passagers mer sous DSP, après effets des politiques (rotations et remplissages améliorés -> favorisation du service).</doc>
+				<eqn>Passagers_DSP_Mer*(IF Politique_DSP_Mer=3 AND Améliorer_les_rotations_mer=1 THEN (1+Hausse_des_traversées_par_rotation_améliorée)*(1+Hausse_du_remplissage_par_rotation_améliorée) ELSE 1)</eqn>
+				<units>Passagers</units>
+			</aux>
+			<aux name="Passagers DSP Air Politique">
+				<doc>Passagers air sous DSP, après effets tarifs résidents et plafonnement non résidents.</doc>
+				<eqn>Total_Passagers_DSP_AIr*Effet_tarifs_sur_demande_résidente_air*Effet_plafond_sur_demande_non_résidente_air</eqn>
+				<units>Passagers</units>
+			</aux>
+						<isee:dependencies>
 				<var name="Nombre_de_passagers_moyen_par_traversée_DSP">
 					<in>Init_passagers_moyen_Mer_DSP</in>
 				</var>
@@ -10115,32 +10368,7 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					<in>Passagers_Air_Total</in>
 					<in>Passagers_Mer_total</in>
 				</var>
-			<aux name="Init passagers BOD_FSC">
-				<doc>[DSP à venir Lot 28 2025-2029] Trafic 2025 observé ligne Bordeaux-Figari (CCIC, stats déc. 2025) = 38185 passagers. Valeur initiale ; ajustable via l'interface.</doc>
-				<eqn>38185</eqn>
-				<units>Passagers</units>
-			</aux>
-			<aux name="Trafic garanti annuel BOD_FSC">
-				<doc>[Contrat concession 2025-2029, Annexe I] Trafic garanti annuel du sens aller. Valeur initiale = trafic 2025 observé ; à ajuster au contrat final.</doc>
-				<eqn>38185</eqn>
-				<units>Passagers</units>
-			</aux>
-			<aux name="Prix unitaire DSP BOD_FSC">
-				<doc>[Contrat concession 2025-2029, art. 15 et Annexe II] Prix versé par le Concédant par passager transporté (VuA). Tarif maximal conventionnel : 700 €/vol. Valeur initiale à ajuster.</doc>
-				<eqn>60</eqn>
-				<units>Euros/passager</units>
-			</aux>
-			<aux name="Passagers DSP BOD_FSC">
-				<doc>[DSP à venir Lot 28] Passagers transportés sur la liaison BOD-FSC (sens aller).</doc>
-				<eqn>Init_passagers_BOD_FSC</eqn>
-				<units>Passagers</units>
-			</aux>
-			<aux name="Cout annuel DSP BOD_FSC">
-				<doc>[Contrat concession 2025-2029, art. 15-16] Prix annuel = VuA x trafic réalisé, plafonné à VuA x trafic garanti.</doc>
-				<eqn>Prix_unitaire_DSP_BOD_FSC*MIN(Passagers_DSP_BOD_FSC,Trafic_garanti_annuel_BOD_FSC)</eqn>
-				<units>Euros</units>
-			</aux>
-			</isee:dependencies>
+</isee:dependencies>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
