@@ -10082,7 +10082,7 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 			</aux>
 			<aux name="Cout annuel DSP BOD FSC">
 				<doc>[Contrat concession 2025-2029, art. 15-16] Prix annuel = VuA x trafic réalisé, plafonné à VuA x trafic garanti.</doc>
-				<eqn>{_l_}Prix_unitaire_DSP_BOD_FSC*MIN(Passagers_DSP_BOD_FSC, Trafic_garanti_annuel_BOD_FSC)</eqn>
+				<eqn>{_l_}Prix_unitaire_DSP_BOD_FSC*MIN(Passagers_DSP_BOD_FSC,Trafic_garanti_annuel_BOD_FSC)</eqn>
 				<units>Euros</units>
 			</aux>
 			<aux name="Politique DSP Mer">
@@ -10182,7 +10182,7 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 			</aux>
 			<aux name="Effet plafond sur demande non résidente air">
 				<doc>Facteur multiplicatif appliqué au trafic non résident DSP air, issu du plafonnement des tarifs (Politique 2c-iii), borné à +50 %.</doc>
-				<eqn>{_l_}IF Politique_DSP_Air=3 AND Plafonner_tarifs_non_résidents=1 AND Plafond_tarif_non_résident_air&lt;Prix_moyen_non_résident_air THEN MIN((Prix_moyen_non_résident_air/Plafond_tarif_non_résident_air)^Elasticité_de_la_demande_non_résidente_air,  1.5) ELSE 1</eqn>
+				<eqn>{_l_}IF Politique_DSP_Air=3 AND Plafonner_tarifs_non_résidents=1 AND Plafond_tarif_non_résident_air&lt;Prix_moyen_non_résident_air THEN MIN((Prix_moyen_non_résident_air/Plafond_tarif_non_résident_air)^Elasticité_de_la_demande_non_résidente_air, 1.5) ELSE 1</eqn>
 				<units>Sans unité</units>
 			</aux>
 			<aux name="Cout DSP Mer Politique">
