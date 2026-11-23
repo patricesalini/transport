@@ -9759,7 +9759,23 @@ Il reste que le maritime est un transporteur de masse.. et que l&apos;aérien es
 				<eqn>(Prix_du_Kerosène*Innovation_Energie_Air)/(INIT(Prix_du_Kerosène)*INIT(Innovation_Energie_Air))</eqn>
 			</aux>
 			<aux name="Indice cout Mer" access="output">
-				<eqn>(1-.22-.1)+Indice_de_cout_énergétique_Mer*.22+Indice_Cout_navires_si_renouvellement*.1</eqn>
+				<eqn>(1-.17-.05-.1-.08)+Indice_cout_BAF*.17+Indice_cout_EU_ETS*.05+Indice_Cout_navires_si_renouvellement*.1+Indice_frais_portuaires_THC_ISPS*.08</eqn>
+			</aux>
+			<aux name="Indice cout BAF">
+				<doc>Surcharge carburant BAF/BSF appliquée en sus du tarif de base : cabotage France (Marseille-Corse) 8 à 14 euros/ml (soit 110 à 190 euros par remorque de 13,60 m), cabotage Italie 7 à 12 euros/ml (95 à 160 euros/remorque). Révision mensuelle sur moyenne des cotations VLSFO/MGO (Rotterdam, Gênes, Marseille). Sur la DSP, clause de révision carburant de l'arrêté de la Collectivité de Corse (Corsica Linea, La Méridionale). Part = 17 % de la facture all-in remorque ; initialement inclus dans la part énergie de 22 %.</doc>
+				<eqn>Indice_de_cout_énergétique_Mer</eqn>
+			</aux>
+			<aux name="Indice cout EU ETS">
+				<doc>Surcharge quota carbone UE : extension EU-ETS aux navires de plus de 5 000 UAB, restitution de quotas pour trajets intra-UE, surtaxe à 100 % de l'empreinte carbone. 2,5 à 4,5 euros/ml France (35 à 60 euros/remorque), 2 à 4 euros/ml Italie (30 à 55 euros/remorque). Ajustement trimestriel/annuel sur le cours du quota EUA ; trajectoire indicative +8 %/an (part = 5 %). Initialement inclus dans la part énergie de 22 %.</doc>
+				<eqn>EXP(Taux_croissance_quota_carbone_EU*(TIME-2025))</eqn>
+			</aux>
+			<aux name="Taux croissance quota carbone EU">
+				<doc>Trajectoire indicative du cours du quota carbone EUA : croissance de 8 % par an.</doc>
+				<eqn>0.08</eqn>
+			</aux>
+			<aux name="Indice frais portuaires THC ISPS">
+				<doc>Frais portuaires, droits de quai (THC) et sûreté ISPS facturés en sus du tarif de base : France 60 à 110 euros par unité (départ + arrivée), Italie 50 à 90 euros par unité. Tarifs portuaires officiels arrêtés annuellement par les autorités portuaires (GPMM Marseille, AdSP Tyrrhénienne, AdSP Sicile) et répercutés par l'armateur. Part = 8 % de la facture all-in remorque ; initialement inclus dans la part fixe de l'indice.</doc>
+				<eqn>1</eqn>
 			</aux>
 			<aux name="Indice cout Aérien" access="output">
 				<doc>On reprend ici la part du fuel indiquée dans la DSP. Les données mondiales donnent plutot 25 %.
@@ -10370,8 +10386,16 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					<in>Prix_du_Kerosène</in>
 				</var>
 				<var name="Indice_cout_Mer">
-					<in>Indice_de_cout_énergétique_Mer</in>
+					<in>Indice_cout_BAF</in>
+					<in>Indice_cout_EU_ETS</in>
 					<in>Indice_Cout_navires_si_renouvellement</in>
+					<in>Indice_frais_portuaires_THC_ISPS</in>
+				</var>
+				<var name="Indice_cout_BAF">
+					<in>Indice_de_cout_énergétique_Mer</in>
+				</var>
+				<var name="Indice_cout_EU_ETS">
+					<in>Taux_croissance_quota_carbone_EU</in>
 				</var>
 				<var name="Indice_cout_Aérien">
 					<in>K</in>
@@ -10753,11 +10777,7 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					<from>Init_Traversées_DSP_Mer</from>
 					<to>Initi_mètres_linéaires_DSP</to>
 				</connector>
-				<connector uid="632" angle="246.801">
-					<from>Indice_de_cout_énergétique_Mer</from>
-					<to>Indice_cout_Mer</to>
-				</connector>
-				<connector uid="633" angle="336.801">
+								<connector uid="633" angle="336.801">
 					<from>Capacité_Moyenne_par_rotation_DSP_Orly</from>
 					<to>Capacité_DSP_Orly</to>
 				</connector>
@@ -12074,162 +12094,186 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<aux x="1800" y="1500" width="165" height="9" name="Prix moyen non résident air"/>
 				<aux x="1800" y="1570" width="165" height="9" name="Plafond tarif non résident air"/>
 				<connector uid="2001" angle="0">
-					<from>Init passagers BOD FSC</from>
-					<to>Passagers DSP BOD FSC</to>
+					<from>Init_passagers_BOD_FSC</from>
+					<to>Passagers_DSP_BOD_FSC</to>
 				</connector>
 				<connector uid="2002" angle="0">
-					<from>Passagers DSP BOD FSC</from>
-					<to>Cout annuel DSP BOD FSC</to>
+					<from>Passagers_DSP_BOD_FSC</from>
+					<to>Cout_annuel_DSP_BOD_FSC</to>
 				</connector>
 				<connector uid="2003" angle="0">
-					<from>Prix unitaire DSP BOD FSC</from>
-					<to>Cout annuel DSP BOD FSC</to>
+					<from>Prix_unitaire_DSP_BOD_FSC</from>
+					<to>Cout_annuel_DSP_BOD_FSC</to>
 				</connector>
 				<connector uid="2004" angle="0">
-					<from>Trafic garanti annuel BOD FSC</from>
-					<to>Cout annuel DSP BOD FSC</to>
+					<from>Trafic_garanti_annuel_BOD_FSC</from>
+					<to>Cout_annuel_DSP_BOD_FSC</to>
 				</connector>
 				<connector uid="2005" angle="0">
-					<from>Cout annuel DSP BOD FSC</from>
-					<to>Cout total annuel DSP Air</to>
+					<from>Cout_annuel_DSP_BOD_FSC</from>
+					<to>Cout_total_annuel_DSP_Air</to>
 				</connector>
 				<connector uid="2006" angle="0">
-					<from>Passagers DSP BOD FSC</from>
-					<to>Total Passagers\nDSP AIr</to>
+					<from>Passagers_DSP_BOD_FSC</from>
+					<to>Total_Passagers_DSP_AIr</to>
 				</connector>
 				<connector uid="2007" angle="0">
-					<from>Total Passagers\nDSP AIr</from>
-					<to>Passagers DSP Air Politique</to>
+					<from>Total_Passagers_DSP_AIr</from>
+					<to>Passagers_DSP_Air_Politique</to>
 				</connector>
 				<connector uid="2008" angle="0">
-					<from>Effet tarifs sur demande résidente air</from>
-					<to>Passagers DSP Air Politique</to>
+					<from>Effet_tarifs_sur_demande_résidente_air</from>
+					<to>Passagers_DSP_Air_Politique</to>
 				</connector>
 				<connector uid="2009" angle="0">
-					<from>Effet plafond sur demande non résidente air</from>
-					<to>Passagers DSP Air Politique</to>
+					<from>Effet_plafond_sur_demande_non_résidente_air</from>
+					<to>Passagers_DSP_Air_Politique</to>
 				</connector>
 				<connector uid="2010" angle="0">
-					<from>Taux de modulation du tarif résident</from>
-					<to>Effet tarifs sur demande résidente air</to>
+					<from>Taux_de_modulation_du_tarif_résident</from>
+					<to>Effet_tarifs_sur_demande_résidente_air</to>
 				</connector>
 				<connector uid="2011" angle="0">
-					<from>Politique DSP Air</from>
-					<to>Effet tarifs sur demande résidente air</to>
+					<from>Politique_DSP_Air</from>
+					<to>Effet_tarifs_sur_demande_résidente_air</to>
 				</connector>
 				<connector uid="2012" angle="0">
-					<from>Plafonner tarifs non résidents</from>
-					<to>Effet plafond sur demande non résidente air</to>
+					<from>Plafonner_tarifs_non_résidents</from>
+					<to>Effet_plafond_sur_demande_non_résidente_air</to>
 				</connector>
 				<connector uid="2013" angle="0">
-					<from>Plafond tarif non résident air</from>
-					<to>Effet plafond sur demande non résidente air</to>
+					<from>Plafond_tarif_non_résident_air</from>
+					<to>Effet_plafond_sur_demande_non_résidente_air</to>
 				</connector>
 				<connector uid="2014" angle="0">
-					<from>Prix moyen non résident air</from>
-					<to>Effet plafond sur demande non résidente air</to>
+					<from>Prix_moyen_non_résident_air</from>
+					<to>Effet_plafond_sur_demande_non_résidente_air</to>
 				</connector>
 				<connector uid="2015" angle="0">
-					<from>Politique DSP Air</from>
-					<to>Effet plafond sur demande non résidente air</to>
+					<from>Politique_DSP_Air</from>
+					<to>Effet_plafond_sur_demande_non_résidente_air</to>
 				</connector>
 				<connector uid="2016" angle="0">
-					<from>Politique DSP Air</from>
-					<to>Cout DSP Air Politique</to>
+					<from>Politique_DSP_Air</from>
+					<to>Cout_DSP_Air_Politique</to>
 				</connector>
 				<connector uid="2017" angle="0">
-					<from>Supprimer le monopole Orly</from>
-					<to>Cout DSP Air Politique</to>
+					<from>Supprimer_le_monopole_Orly</from>
+					<to>Cout_DSP_Air_Politique</to>
 				</connector>
 				<connector uid="2018" angle="0">
-					<from>Réduction de la compensation Orly</from>
-					<to>Cout DSP Air Politique</to>
+					<from>Réduction_de_la_compensation_Orly</from>
+					<to>Cout_DSP_Air_Politique</to>
 				</connector>
 				<connector uid="2019" angle="0">
-					<from>Cout total annuel DSP Air</from>
-					<to>Cout DSP Air Politique</to>
+					<from>Cout_total_annuel_DSP_Air</from>
+					<to>Cout_DSP_Air_Politique</to>
 				</connector>
 				<connector uid="2020" angle="0">
-					<from>Politique DSP Mer</from>
-					<to>Cout DSP Mer Politique</to>
+					<from>Politique_DSP_Mer</from>
+					<to>Cout_DSP_Mer_Politique</to>
 				</connector>
 				<connector uid="2021" angle="0">
-					<from>Taux de modulation du prix garanti par ml</from>
-					<to>Cout DSP Mer Politique</to>
+					<from>Taux_de_modulation_du_prix_garanti_par_ml</from>
+					<to>Cout_DSP_Mer_Politique</to>
 				</connector>
 				<connector uid="2022" angle="0">
-					<from>Financer export uniquement</from>
-					<to>Cout DSP Mer Politique</to>
+					<from>Financer_export_uniquement</from>
+					<to>Cout_DSP_Mer_Politique</to>
 				</connector>
 				<connector uid="2023" angle="0">
-					<from>Part du trafic export dans la DSP mer</from>
-					<to>Cout DSP Mer Politique</to>
+					<from>Part_du_trafic_export_dans_la_DSP_mer</from>
+					<to>Cout_DSP_Mer_Politique</to>
 				</connector>
 				<connector uid="2024" angle="0">
-					<from>Financer hors Ajaccio Bastia</from>
-					<to>Cout DSP Mer Politique</to>
+					<from>Financer_hors_Ajaccio_Bastia</from>
+					<to>Cout_DSP_Mer_Politique</to>
 				</connector>
 				<connector uid="2025" angle="0">
-					<from>Part traversées DSP hors Ajaccio Bastia</from>
-					<to>Cout DSP Mer Politique</to>
+					<from>Part_traversées_DSP_hors_Ajaccio_Bastia</from>
+					<to>Cout_DSP_Mer_Politique</to>
 				</connector>
 				<connector uid="2026" angle="0">
-					<from>Améliorer les rotations mer</from>
-					<to>Cout DSP Mer Politique</to>
+					<from>Améliorer_les_rotations_mer</from>
+					<to>Cout_DSP_Mer_Politique</to>
 				</connector>
 				<connector uid="2027" angle="0">
-					<from>Hausse des traversées par rotation améliorée</from>
-					<to>Cout DSP Mer Politique</to>
+					<from>Hausse_des_traversées_par_rotation_améliorée</from>
+					<to>Cout_DSP_Mer_Politique</to>
 				</connector>
 				<connector uid="2028" angle="0">
-					<from>Cout Annuel DSP mer</from>
-					<to>Cout DSP Mer Politique</to>
+					<from>Cout_Annuel_DSP_mer</from>
+					<to>Cout_DSP_Mer_Politique</to>
 				</connector>
 				<connector uid="2029" angle="0">
-					<from>Cout DSP Mer Politique</from>
-					<to>Cout DSP Total Politique</to>
+					<from>Cout_DSP_Mer_Politique</from>
+					<to>Cout_DSP_Total_Politique</to>
 				</connector>
 				<connector uid="2030" angle="0">
-					<from>Cout DSP Air Politique</from>
-					<to>Cout DSP Total Politique</to>
+					<from>Cout_DSP_Air_Politique</from>
+					<to>Cout_DSP_Total_Politique</to>
 				</connector>
 				<connector uid="2031" angle="0">
-					<from>Passagers\nDSP Mer</from>
-					<to>Passagers DSP Mer Politique</to>
+					<from>Passagers_DSP_Mer</from>
+					<to>Passagers_DSP_Mer_Politique</to>
 				</connector>
 				<connector uid="2032" angle="0">
-					<from>Politique DSP Mer</from>
-					<to>Passagers DSP Mer Politique</to>
+					<from>Politique_DSP_Mer</from>
+					<to>Passagers_DSP_Mer_Politique</to>
 				</connector>
 				<connector uid="2033" angle="0">
-					<from>Améliorer les rotations mer</from>
-					<to>Passagers DSP Mer Politique</to>
+					<from>Améliorer_les_rotations_mer</from>
+					<to>Passagers_DSP_Mer_Politique</to>
 				</connector>
 				<connector uid="2034" angle="0">
-					<from>Hausse des traversées par rotation améliorée</from>
-					<to>Passagers DSP Mer Politique</to>
+					<from>Hausse_des_traversées_par_rotation_améliorée</from>
+					<to>Passagers_DSP_Mer_Politique</to>
 				</connector>
 				<connector uid="2035" angle="0">
-					<from>Hausse du remplissage par rotation améliorée</from>
-					<to>Passagers DSP Mer Politique</to>
+					<from>Hausse_du_remplissage_par_rotation_améliorée</from>
+					<to>Passagers_DSP_Mer_Politique</to>
 				</connector>
 				<connector uid="2036" angle="0">
-					<from>Elasticité de la demande résidente air</from>
-					<to>Effet tarifs sur demande résidente air</to>
+					<from>Elasticité_de_la_demande_résidente_air</from>
+					<to>Effet_tarifs_sur_demande_résidente_air</to>
 				</connector>
 				<connector uid="2037" angle="0">
-					<from>Elasticité de la demande non résidente air</from>
-					<to>Effet plafond sur demande non résidente air</to>
+					<from>Elasticité_de_la_demande_non_résidente_air</from>
+					<to>Effet_plafond_sur_demande_non_résidente_air</to>
 				</connector>
 				<connector uid="2038" angle="0">
-					<from>Cout de la TEP</from>
-					<to>Cout du FOL</to>
+					<from>Cout_de_la_TEP</from>
+					<to>Cout_du_FOL</to>
 				</connector>
 				<connector uid="2039" angle="0">
-					<from>Cout de la TEP</from>
-					<to>Cout du GO</to>
+					<from>Cout_de_la_TEP</from>
+					<to>Cout_du_GO</to>
 				</connector>
-			</view>
+				<aux x="445" y="900" width="105" height="9" name="Indice cout BAF"/>
+				<aux x="445" y="940" width="120" height="9" name="Indice cout EU ETS"/>
+				<aux x="445" y="980" width="195" height="9" name="Indice frais portuaires THC ISPS"/>
+				<aux x="445" y="1020" width="210" height="9" name="Taux croissance quota carbone EU"/>
+				<connector uid="2101" angle="0">
+					<from>Indice_cout_BAF</from>
+					<to>Indice_cout_Mer</to>
+				</connector>
+				<connector uid="2102" angle="0">
+					<from>Indice_de_cout_énergétique_Mer</from>
+					<to>Indice_cout_BAF</to>
+				</connector>
+				<connector uid="2103" angle="0">
+					<from>Taux_croissance_quota_carbone_EU</from>
+					<to>Indice_cout_EU_ETS</to>
+				</connector>
+				<connector uid="2104" angle="0">
+					<from>Indice_cout_EU_ETS</from>
+					<to>Indice_cout_Mer</to>
+				</connector>
+				<connector uid="2105" angle="0">
+					<from>Indice_frais_portuaires_THC_ISPS</from>
+					<to>Indice_cout_Mer</to>
+				</connector>
+</view>
 			<view isee:show_pages="false" background="white" page_width="788" home_view="true" type="interface" page_height="528">
 				<style/>
 			</view>
