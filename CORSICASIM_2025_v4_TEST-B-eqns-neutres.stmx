@@ -9759,7 +9759,23 @@ Il reste que le maritime est un transporteur de masse.. et que l&apos;aérien es
 				<eqn>(Prix_du_Kerosène*Innovation_Energie_Air)/(INIT(Prix_du_Kerosène)*INIT(Innovation_Energie_Air))</eqn>
 			</aux>
 			<aux name="Indice cout Mer" access="output">
-				<eqn>(1-.22-.1)+Indice_de_cout_énergétique_Mer*.22+Indice_Cout_navires_si_renouvellement*.1</eqn>
+				<eqn>(1-.17-.05-.1-.08)+Indice_cout_BAF*.17+Indice_cout_EU_ETS*.05+Indice_Cout_navires_si_renouvellement*.1+Indice_frais_portuaires_THC_ISPS*.08</eqn>
+			</aux>
+			<aux name="Indice cout BAF">
+				<doc>Surcharge carburant BAF/BSF appliquée en sus du tarif de base : cabotage France (Marseille-Corse) 8 à 14 euros/ml (soit 110 à 190 euros par remorque de 13,60 m), cabotage Italie 7 à 12 euros/ml (95 à 160 euros/remorque). Révision mensuelle sur moyenne des cotations VLSFO/MGO (Rotterdam, Gênes, Marseille). Sur la DSP, clause de révision carburant de l'arrêté de la Collectivité de Corse (Corsica Linea, La Méridionale). Part = 17 % de la facture all-in remorque ; initialement inclus dans la part énergie de 22 %.</doc>
+				<eqn>Indice_de_cout_énergétique_Mer</eqn>
+			</aux>
+			<aux name="Indice cout EU ETS">
+				<doc>Surcharge quota carbone UE : extension EU-ETS aux navires de plus de 5 000 UAB, restitution de quotas pour trajets intra-UE, surtaxe à 100 % de l'empreinte carbone. 2,5 à 4,5 euros/ml France (35 à 60 euros/remorque), 2 à 4 euros/ml Italie (30 à 55 euros/remorque). Ajustement trimestriel/annuel sur le cours du quota EUA ; trajectoire indicative +8 %/an (part = 5 %). Initialement inclus dans la part énergie de 22 %.</doc>
+				<eqn>EXP(Taux_croissance_quota_carbone_EU*(TIME-2025))</eqn>
+			</aux>
+			<aux name="Taux croissance quota carbone EU">
+				<doc>Trajectoire indicative du cours du quota carbone EUA : croissance de 8 % par an.</doc>
+				<eqn>0.08</eqn>
+			</aux>
+			<aux name="Indice frais portuaires THC ISPS">
+				<doc>Frais portuaires, droits de quai (THC) et sûreté ISPS facturés en sus du tarif de base : France 60 à 110 euros par unité (départ + arrivée), Italie 50 à 90 euros par unité. Tarifs portuaires officiels arrêtés annuellement par les autorités portuaires (GPMM Marseille, AdSP Tyrrhénienne, AdSP Sicile) et répercutés par l'armateur. Part = 8 % de la facture all-in remorque ; initialement inclus dans la part fixe de l'indice.</doc>
+				<eqn>1</eqn>
 			</aux>
 			<aux name="Indice cout Aérien" access="output">
 				<doc>On reprend ici la part du fuel indiquée dans la DSP. Les données mondiales donnent plutot 25 %.
@@ -10066,7 +10082,7 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 			</aux>
 			<aux name="Cout annuel DSP BOD FSC">
 				<doc>[Contrat concession 2025-2029, art. 15-16] Prix annuel = VuA x trafic réalisé, plafonné à VuA x trafic garanti.</doc>
-				<eqn>{_l_}Prix_unitaire_DSP_BOD_FSC*MIN(Passagers_DSP_BOD_FSC,Trafic_garanti_annuel_BOD_FSC)</eqn>
+				<eqn>0</eqn>
 				<units>Euros</units>
 			</aux>
 			<aux name="Politique DSP Mer">
@@ -10166,7 +10182,7 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 			</aux>
 			<aux name="Effet plafond sur demande non résidente air">
 				<doc>Facteur multiplicatif appliqué au trafic non résident DSP air, issu du plafonnement des tarifs (Politique 2c-iii), borné à +50 %.</doc>
-				<eqn>{_l_}IF Politique_DSP_Air=3 AND Plafonner_tarifs_non_résidents=1 AND Plafond_tarif_non_résident_air&lt;Prix_moyen_non_résident_air THEN MIN((Prix_moyen_non_résident_air/Plafond_tarif_non_résident_air)^Elasticité_de_la_demande_non_résidente_air, 1.5) ELSE 1</eqn>
+				<eqn>1</eqn>
 				<units>Sans unité</units>
 			</aux>
 			<aux name="Cout DSP Mer Politique">
@@ -10370,8 +10386,16 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					<in>Prix_du_Kerosène</in>
 				</var>
 				<var name="Indice_cout_Mer">
-					<in>Indice_de_cout_énergétique_Mer</in>
+					<in>Indice_cout_BAF</in>
+					<in>Indice_cout_EU_ETS</in>
 					<in>Indice_Cout_navires_si_renouvellement</in>
+					<in>Indice_frais_portuaires_THC_ISPS</in>
+				</var>
+				<var name="Indice_cout_BAF">
+					<in>Indice_de_cout_énergétique_Mer</in>
+				</var>
+				<var name="Indice_cout_EU_ETS">
+					<in>Taux_croissance_quota_carbone_EU</in>
 				</var>
 				<var name="Indice_cout_Aérien">
 					<in>K</in>
@@ -12213,11 +12237,31 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					<from>Cout_de_la_TEP</from>
 					<to>Cout_du_GO</to>
 				</connector>
-				<connector uid="632" angle="246.801">
-					<from>Indice_de_cout_énergétique_Mer</from>
+				<aux x="445" y="900" width="105" height="9" name="Indice cout BAF"/>
+				<aux x="445" y="940" width="120" height="9" name="Indice cout EU ETS"/>
+				<aux x="445" y="980" width="195" height="9" name="Indice frais portuaires THC ISPS"/>
+				<aux x="445" y="1020" width="210" height="9" name="Taux croissance quota carbone EU"/>
+				<connector uid="2101" angle="0">
+					<from>Indice_cout_BAF</from>
 					<to>Indice_cout_Mer</to>
 				</connector>
-				</view>
+				<connector uid="2102" angle="0">
+					<from>Indice_de_cout_énergétique_Mer</from>
+					<to>Indice_cout_BAF</to>
+				</connector>
+				<connector uid="2103" angle="0">
+					<from>Taux_croissance_quota_carbone_EU</from>
+					<to>Indice_cout_EU_ETS</to>
+				</connector>
+				<connector uid="2104" angle="0">
+					<from>Indice_cout_EU_ETS</from>
+					<to>Indice_cout_Mer</to>
+				</connector>
+				<connector uid="2105" angle="0">
+					<from>Indice_frais_portuaires_THC_ISPS</from>
+					<to>Indice_cout_Mer</to>
+				</connector>
+</view>
 			<view isee:show_pages="false" background="white" page_width="788" home_view="true" type="interface" page_height="528">
 				<style/>
 			</view>
