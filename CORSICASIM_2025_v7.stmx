@@ -9594,7 +9594,6 @@ le passge du prix du pétrole au prix des différentes énergie n&apos;est pas �
 			</flow>
 			<stock name="Passagers\nDSP Mer">
 				<eqn>Init_Passagers_DSP_mer</eqn>
-				<inflow>Var_Pass</inflow>
 				<units>Passagers</units>
 			</stock>
 			<flow name="Var Pass">
@@ -9681,17 +9680,14 @@ Il reste que le maritime est un transporteur de masse.. et que l&apos;aérien es
 			</aux>
 			<stock name="Traversées Italie">
 				<eqn>Init_Traversées_Italie</eqn>
-				<inflow>Var_traversées_italie</inflow>
 				<units>Traversées</units>
 			</stock>
 			<stock name="Traversées France Hors DSP">
 				<eqn>Init_traversées_France_Hors_DSP</eqn>
-				<inflow>VAr_traversées_Frances_Hors_DSP</inflow>
 				<units>Traversées</units>
 			</stock>
 			<stock name="Traversées Bonifacio">
 				<eqn>Init_Traversées_Bonifacio</eqn>
-				<inflow>Var_Traversées_Bonifacio</inflow>
 				<units>Traversées</units>
 			</stock>
 			<flow name="Var traversées italie">
@@ -9828,12 +9824,10 @@ A tester.</doc>
 			</aux>
 			<stock name="Passagers DSP Orly">
 				<eqn>Init_Passagers_DSP_Orly</eqn>
-				<inflow>Var_Passagers_DSP_ORY</inflow>
 				<units>Passagers</units>
 			</stock>
 			<stock name="Passagers DSP B à B">
 				<eqn>Init_passagers_B_à_B</eqn>
-				<inflow>Var_Passagers_DSP_BaB</inflow>
 				<units>Passagers</units>
 			</stock>
 			<aux name="Init passagers\nhors DSP air">
@@ -9856,7 +9850,6 @@ A tester.</doc>
 				<doc>On a pris le niveau de 0,9 € par litre. 
 Il est censé évlouer comme le prix de la tonne de pétrole.</doc>
 				<eqn>0.9</eqn>
-				<inflow>Var_prix_Kero</inflow>
 				<units>Euros</units>
 			</stock>
 			<flow name="Var prix Kero">
@@ -9918,7 +9911,6 @@ Il est censé évlouer comme le prix de la tonne de pétrole.</doc>
 			</aux>
 			<stock name="Rotations ORY">
 				<eqn>4429</eqn>
-				<inflow>var_rotations</inflow>
 			</stock>
 			<flow name="var rotations">
 				<eqn>Modification_DSP_ORY</eqn>
@@ -9928,7 +9920,6 @@ Il est censé évlouer comme le prix de la tonne de pétrole.</doc>
 			</aux>
 			<stock name="Rotations BaB">
 				<eqn>7803</eqn>
-				<inflow>Var_Rotations_BaB</inflow>
 			</stock>
 			<flow name="Var Rotations BaB">
 				<eqn>Rotations_BaB*Modif_DSP_BaB</eqn>
