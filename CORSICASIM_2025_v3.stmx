@@ -3034,7 +3034,7 @@ voir la définition : http://www.cgedd.developpement-durable.gouv.fr/assiette-de
 					<to>Var_inv</to>
 				</connector>
 				<connector uid="197" angle="259.992">
-					<from>&quot;Investissement_&amp;_Epargne&quot;</from>
+					<from>Investissement_&amp;_Epargne</from>
 					<to>Investissement_total</to>
 				</connector>
 				<connector uid="198" angle="137.8">
@@ -3176,7 +3176,7 @@ voir la définition : http://www.cgedd.developpement-durable.gouv.fr/assiette-de
 					<to>Production_Agroalimentaire_locale</to>
 				</connector>
 				<connector uid="233" angle="333.435">
-					<from>&quot;Investissement_&amp;_Epargne&quot;</from>
+					<from>Investissement_&amp;_Epargne</from>
 					<to>Inv</to>
 				</connector>
 				<connector uid="234" angle="240.255">
@@ -3223,7 +3223,7 @@ voir la définition : http://www.cgedd.developpement-durable.gouv.fr/assiette-de
 				</connector>
 				<connector uid="245" angle="327.529">
 					<from>Somme_valeurs_ajoutées_brutes</from>
-					<to>&quot;Trend_Annuel_PIB_corse_%&quot;</to>
+					<to>Trend_Annuel_PIB_corse_%</to>
 				</connector>
 				<connector uid="246" angle="138.814">
 					<from>
@@ -12093,10 +12093,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<aux x="1800" y="1430" width="165" height="9" name="Plafonner tarifs non résidents"/>
 				<aux x="1800" y="1500" width="165" height="9" name="Prix moyen non résident air"/>
 				<aux x="1800" y="1570" width="165" height="9" name="Plafond tarif non résident air"/>
-				<connector uid="2001" angle="0">
-					<from>Init_passagers_BOD_FSC</from>
-					<to>Passagers_DSP_BOD_FSC</to>
-				</connector>
 				<connector uid="2002" angle="0">
 					<from>Passagers_DSP_BOD_FSC</from>
 					<to>Cout_annuel_DSP_BOD_FSC</to>
@@ -12112,14 +12108,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 				<connector uid="2005" angle="0">
 					<from>Cout_annuel_DSP_BOD_FSC</from>
 					<to>Cout_total_annuel_DSP_Air</to>
-				</connector>
-				<connector uid="2006" angle="0">
-					<from>Passagers_DSP_BOD_FSC</from>
-					<to>Total_Passagers_DSP_AIr</to>
-				</connector>
-				<connector uid="2007" angle="0">
-					<from>Total_Passagers_DSP_AIr</from>
-					<to>Passagers_DSP_Air_Politique</to>
 				</connector>
 				<connector uid="2008" angle="0">
 					<from>Effet_tarifs_sur_demande_résidente_air</from>
