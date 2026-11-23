@@ -3034,7 +3034,7 @@ voir la définition : http://www.cgedd.developpement-durable.gouv.fr/assiette-de
 					<to>Var_inv</to>
 				</connector>
 				<connector uid="197" angle="259.992">
-					<from>Investissement_&amp;_Epargne</from>
+					<from>&quot;Investissement_&amp;_Epargne&quot;</from>
 					<to>Investissement_total</to>
 				</connector>
 				<connector uid="198" angle="137.8">
@@ -3176,7 +3176,7 @@ voir la définition : http://www.cgedd.developpement-durable.gouv.fr/assiette-de
 					<to>Production_Agroalimentaire_locale</to>
 				</connector>
 				<connector uid="233" angle="333.435">
-					<from>Investissement_&amp;_Epargne</from>
+					<from>&quot;Investissement_&amp;_Epargne&quot;</from>
 					<to>Inv</to>
 				</connector>
 				<connector uid="234" angle="240.255">
@@ -3223,7 +3223,7 @@ voir la définition : http://www.cgedd.developpement-durable.gouv.fr/assiette-de
 				</connector>
 				<connector uid="245" angle="327.529">
 					<from>Somme_valeurs_ajoutées_brutes</from>
-					<to>Trend_Annuel_PIB_corse_%</to>
+					<to>&quot;Trend_Annuel_PIB_corse_%&quot;</to>
 				</connector>
 				<connector uid="246" angle="138.814">
 					<from>
