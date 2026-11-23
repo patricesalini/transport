@@ -11161,22 +11161,6 @@ Il reflète bien en revanche l&apos;évolution du coût pondéré . Si celui aug
 					<from>Converter_4</from>
 					<to>Var_Pass</to>
 				</connector>
-				<connector uid="2106" angle="25.0169">
-					<from>Converter_4</from>
-					<to>Var_Passagers_DSP_ORY</to>
-				</connector>
-				<connector uid="2107" angle="155.44">
-					<from>Tx_Mob_exter_touristique</from>
-					<to>Var_Passagers_DSP_ORY</to>
-				</connector>
-				<connector uid="2108" angle="321.94">
-					<from>Converter_4</from>
-					<to>Var_Passagers_DSP_BaB</to>
-				</connector>
-				<connector uid="2109" angle="150.255">
-					<from>Tx_Mob_exter_touristique</from>
-					<to>Var_Passagers_DSP_BaB</to>
-				</connector>
 				<connector uid="732" angle="10.8855">
 					<from>Consommation_énergie_DSP_par_Traversée</from>
 					<to>Cout_Energie_par_traversée_DSP</to>
